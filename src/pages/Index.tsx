@@ -8,11 +8,11 @@ const Index = () => {
   const [userName] = useState("Alex");
 
   const activities = [
-    { icon: BookOpen, label: "Learn", color: "bg-primary/10 text-primary", link: "/resources" },
-    { icon: Video, label: "Watch", color: "bg-secondary/10 text-secondary", link: "/resources" },
-    { icon: BookOpen, label: "Journal", color: "bg-accent/10 text-accent", link: "/journal" },
-    { icon: Smile, label: "Feelings", color: "bg-primary/10 text-primary", link: "/mood" },
-    { icon: Heart, label: "Reflect", color: "bg-wellness/40 text-wellness-foreground", link: "/journal" },
+    { icon: BookOpen, label: "Learn", color: "bg-calm/60 text-calm-foreground", link: "/resources" },
+    { icon: Video, label: "Watch", color: "bg-calm/60 text-calm-foreground", link: "/resources" },
+    { icon: BookOpen, label: "Journal", color: "bg-calm/60 text-calm-foreground", link: "/journal" },
+    { icon: Smile, label: "Feelings", color: "bg-calm/60 text-calm-foreground", link: "/mood" },
+    { icon: Heart, label: "Reflect", color: "bg-calm/60 text-calm-foreground", link: "/journal" },
     { icon: Clipboard, label: "Check-in", color: "bg-calm/60 text-calm-foreground", link: "/mood" },
   ];
 
