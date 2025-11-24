@@ -8,6 +8,7 @@ import Mood from "./pages/Mood";
 import Breathing from "./pages/Breathing";
 import Journal from "./pages/Journal";
 import Resources from "./pages/Resources";
+import Welcome from "./pages/Welcome";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
@@ -20,8 +21,9 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Welcome />} />
           <Route path="/auth" element={<Auth />} />
-          <Route path="/" element={<Index />} />
+          <Route path="/home" element={<Index />} />
           <Route path="/mood" element={<Mood />} />
           <Route path="/breathing" element={<Breathing />} />
           <Route path="/journal" element={<Journal />} />
