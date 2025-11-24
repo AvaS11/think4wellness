@@ -31,7 +31,7 @@ const Index = () => {
       </div>
 
       {/* Activities Grid */}
-      <div className="px-6 -mt-6 max-w-2xl mx-auto">
+      <div className="px-6 pt-6 max-w-2xl mx-auto">
         <div className="grid grid-cols-3 gap-4 mb-8">
           {activities.map((activity, index) => {
             const Icon = activity.icon;
