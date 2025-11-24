@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Heart, BookOpen, Video, Calendar, Clipboard, Smile, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import MoodWheel from "@/components/MoodWheel";
 
 const Index = () => {
   const [userName] = useState("Alex");
@@ -30,20 +31,10 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Activities Grid */}
+      {/* Mood Wheel Visualization */}
       <div className="px-6 pt-6 max-w-2xl mx-auto">
-        <div className="grid grid-cols-3 gap-4 mb-8">
-          {activities.map((activity, index) => {
-            const Icon = activity.icon;
-            return (
-              <Link key={index} to={activity.link}>
-                <Card className={`p-6 flex flex-col items-center gap-3 hover:shadow-[var(--shadow-soft)] transition-all hover:-translate-y-1 border-border/50 ${activity.color}`}>
-                  <Icon className="w-8 h-8" />
-                  <span className="text-sm font-medium text-center">{activity.label}</span>
-                </Card>
-              </Link>
-            );
-          })}
+        <div className="mb-8">
+          <MoodWheel />
         </div>
 
 
