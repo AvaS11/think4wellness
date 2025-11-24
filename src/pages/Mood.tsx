@@ -8,6 +8,7 @@ import { toast } from "sonner";
 const Mood = () => {
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
   const [note, setNote] = useState("");
+  const [userName] = useState("Alex");
 
   const moods = [
     { id: "great", icon: Smile, label: "Great", color: "text-secondary hover:bg-secondary/10" },
@@ -28,12 +29,17 @@ const Mood = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto max-w-4xl px-6 py-12">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Mood Tracker</h1>
-          <p className="text-muted-foreground text-lg">How are you feeling today?</p>
+    <div className="min-h-screen bg-background pb-20">
+      <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-calm px-6 pt-12 pb-8 mb-6">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-3xl font-bold text-foreground mb-2">
+            Hello {userName}!
+          </h1>
+          <p className="text-lg text-muted-foreground">How are you feeling today?</p>
         </div>
+      </div>
+      
+      <div className="container mx-auto max-w-2xl px-6">
 
         <Card className="p-8 mb-6 border-border/50">
           <div className="space-y-8">
@@ -81,7 +87,7 @@ const Mood = () => {
           </div>
         </Card>
 
-        <Card className="p-6 border-border/50">
+        <Card className="p-6 border-border/50 mb-6">
           <div className="flex items-center gap-3 mb-4">
             <Calendar className="w-5 h-5 text-primary" />
             <h2 className="text-xl font-semibold text-foreground">Your Mood History</h2>
@@ -90,6 +96,32 @@ const Mood = () => {
             Start logging your moods to see patterns and insights over time.
           </p>
         </Card>
+      </div>
+
+      {/* Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border px-6 py-4">
+        <div className="max-w-2xl mx-auto flex justify-around">
+          <a href="/" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Heart className="w-6 h-6" />
+            <span className="text-xs font-medium">Home</span>
+          </a>
+          <a href="/mood" className="flex flex-col items-center gap-1 text-primary">
+            <Smile className="w-6 h-6" />
+            <span className="text-xs font-medium">Mood</span>
+          </a>
+          <a href="/breathing" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Calendar className="w-6 h-6" />
+            <span className="text-xs font-medium">Breathe</span>
+          </a>
+          <a href="/journal" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Smile className="w-6 h-6" />
+            <span className="text-xs font-medium">Journal</span>
+          </a>
+          <a href="/resources" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Calendar className="w-6 h-6" />
+            <span className="text-xs font-medium">More</span>
+          </a>
+        </div>
       </div>
     </div>
   );
