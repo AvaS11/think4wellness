@@ -56,14 +56,17 @@ const Breathing = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto max-w-4xl px-6 py-12">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Breathing Exercises</h1>
-          <p className="text-muted-foreground text-lg">
-            Follow the guided breathing to calm your mind and reduce stress
+    <div className="min-h-screen bg-background pb-20">
+      <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-calm px-6 pt-12 pb-8 mb-6">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-3xl font-bold text-foreground mb-2">Breathing Exercises</h1>
+          <p className="text-lg text-muted-foreground">
+            Follow the guided breathing to calm your mind
           </p>
         </div>
+      </div>
+      
+      <div className="container mx-auto max-w-2xl px-6">
 
         <Card className="p-12 text-center border-border/50 mb-6">
           <div className="max-w-md mx-auto space-y-8">
@@ -132,7 +135,7 @@ const Breathing = () => {
           </div>
         </Card>
 
-        <Card className="p-6 bg-calm/30 border-border/50">
+        <Card className="p-6 bg-calm/30 border-border/50 mb-6">
           <h3 className="text-lg font-semibold text-foreground mb-3">Breathing Tips</h3>
           <ul className="space-y-2 text-muted-foreground">
             <li>• Find a quiet, comfortable place to sit or lie down</li>
@@ -141,6 +144,32 @@ const Breathing = () => {
             <li>• Practice for 5-10 minutes daily for best results</li>
           </ul>
         </Card>
+      </div>
+
+      {/* Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border px-6 py-4">
+        <div className="max-w-2xl mx-auto flex justify-around">
+          <a href="/" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Wind className="w-6 h-6" />
+            <span className="text-xs font-medium">Home</span>
+          </a>
+          <a href="/mood" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Play className="w-6 h-6" />
+            <span className="text-xs font-medium">Mood</span>
+          </a>
+          <a href="/breathing" className="flex flex-col items-center gap-1 text-primary">
+            <Wind className="w-6 h-6" />
+            <span className="text-xs font-medium">Breathe</span>
+          </a>
+          <a href="/journal" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <RotateCcw className="w-6 h-6" />
+            <span className="text-xs font-medium">Journal</span>
+          </a>
+          <a href="/resources" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Wind className="w-6 h-6" />
+            <span className="text-xs font-medium">More</span>
+          </a>
+        </div>
       </div>
     </div>
   );

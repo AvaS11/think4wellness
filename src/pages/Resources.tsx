@@ -64,14 +64,17 @@ const Resources = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto max-w-6xl px-6 py-12">
-        <div className="mb-12">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Wellness Resources</h1>
-          <p className="text-muted-foreground text-lg">
-            Curated information and tools to support your mental health journey
+    <div className="min-h-screen bg-background pb-20">
+      <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-calm px-6 pt-12 pb-8 mb-6">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-3xl font-bold text-foreground mb-2">Wellness Resources</h1>
+          <p className="text-lg text-muted-foreground">
+            Tools to support your mental health journey
           </p>
         </div>
+      </div>
+      
+      <div className="container mx-auto max-w-2xl px-6">
 
         {/* Emergency Resources */}
         <Card className="p-6 mb-12 bg-accent/10 border-accent/30">
@@ -131,7 +134,7 @@ const Resources = () => {
         </div>
 
         {/* Additional Resources */}
-        <Card className="p-8 border-border/50 bg-wellness/30">
+        <Card className="p-8 border-border/50 bg-wellness/30 mb-6">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-6 h-6 text-secondary" />
             <h2 className="text-2xl font-semibold text-foreground">Further Reading</h2>
@@ -141,6 +144,32 @@ const Resources = () => {
           </p>
           <Button className="rounded-full">Browse Library</Button>
         </Card>
+      </div>
+
+      {/* Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border px-6 py-4">
+        <div className="max-w-2xl mx-auto flex justify-around">
+          <a href="/" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Heart className="w-6 h-6" />
+            <span className="text-xs font-medium">Home</span>
+          </a>
+          <a href="/mood" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Brain className="w-6 h-6" />
+            <span className="text-xs font-medium">Mood</span>
+          </a>
+          <a href="/breathing" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Heart className="w-6 h-6" />
+            <span className="text-xs font-medium">Breathe</span>
+          </a>
+          <a href="/journal" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <BookOpen className="w-6 h-6" />
+            <span className="text-xs font-medium">Journal</span>
+          </a>
+          <a href="/resources" className="flex flex-col items-center gap-1 text-primary">
+            <Phone className="w-6 h-6" />
+            <span className="text-xs font-medium">More</span>
+          </a>
+        </div>
       </div>
     </div>
   );

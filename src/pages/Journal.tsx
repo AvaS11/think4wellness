@@ -3,12 +3,13 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { BookOpen, Save, Plus } from "lucide-react";
+import { BookOpen, Save, Plus, Heart, Smile } from "lucide-react";
 import { toast } from "sonner";
 
 const Journal = () => {
   const [title, setTitle] = useState("");
   const [entry, setEntry] = useState("");
+  const [userName] = useState("Alex");
 
   const handleSave = () => {
     if (!entry.trim()) {
@@ -21,14 +22,19 @@ const Journal = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto max-w-4xl px-6 py-12">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Journal</h1>
-          <p className="text-muted-foreground text-lg">
-            Express your thoughts and feelings in your private space
+    <div className="min-h-screen bg-background pb-20">
+      <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-calm px-6 pt-12 pb-8 mb-6">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-3xl font-bold text-foreground mb-2">
+            Hello {userName}!
+          </h1>
+          <p className="text-lg text-muted-foreground">
+            Express your thoughts and feelings
           </p>
         </div>
+      </div>
+      
+      <div className="container mx-auto max-w-2xl px-6">
 
         <Card className="p-8 mb-6 border-border/50">
           <div className="space-y-6">
@@ -67,7 +73,7 @@ const Journal = () => {
           </div>
         </Card>
 
-        <Card className="p-6 border-border/50">
+        <Card className="p-6 border-border/50 mb-6">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-5 h-5 text-primary" />
             <h2 className="text-xl font-semibold text-foreground">Your Journal Entries</h2>
@@ -80,6 +86,32 @@ const Journal = () => {
             View All Entries
           </Button>
         </Card>
+      </div>
+
+      {/* Bottom Navigation */}
+      <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border px-6 py-4">
+        <div className="max-w-2xl mx-auto flex justify-around">
+          <a href="/" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Heart className="w-6 h-6" />
+            <span className="text-xs font-medium">Home</span>
+          </a>
+          <a href="/mood" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Smile className="w-6 h-6" />
+            <span className="text-xs font-medium">Mood</span>
+          </a>
+          <a href="/breathing" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Heart className="w-6 h-6" />
+            <span className="text-xs font-medium">Breathe</span>
+          </a>
+          <a href="/journal" className="flex flex-col items-center gap-1 text-primary">
+            <BookOpen className="w-6 h-6" />
+            <span className="text-xs font-medium">Journal</span>
+          </a>
+          <a href="/resources" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
+            <Plus className="w-6 h-6" />
+            <span className="text-xs font-medium">More</span>
+          </a>
+        </div>
       </div>
     </div>
   );
