@@ -8,6 +8,7 @@ import Mood from "./pages/Mood";
 import Breathing from "./pages/Breathing";
 import Journal from "./pages/Journal";
 import Resources from "./pages/Resources";
+import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          <Route path="/auth" element={<Auth />} />
           <Route path="/" element={<Index />} />
           <Route path="/mood" element={<Mood />} />
           <Route path="/breathing" element={<Breathing />} />

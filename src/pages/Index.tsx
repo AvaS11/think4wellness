@@ -1,12 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Heart, BookOpen, Video, Calendar, Clipboard, Smile, TrendingUp } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Heart, BookOpen, Video, Calendar, Clipboard, Smile, TrendingUp, LogOut } from "lucide-react";
+import { Link, useNavigate } from "react-router-dom";
 import MoodWheel from "@/components/MoodWheel";
+import { useAuth } from "@/hooks/useAuth";
 
 const Index = () => {
   const [userName] = useState("Alex");
+  const { user, loading, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!loading && !user) {
+      navigate("/auth");
+    }
+  }, [user, loading, navigate]);
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <p className="text-foreground">Loading...</p>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return null;
+  }
 
   const activities = [
     { icon: BookOpen, label: "Learn", color: "bg-calm/60 text-calm-foreground", link: "/resources" },
@@ -22,12 +43,24 @@ const Index = () => {
       {/* Header */}
       <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-calm px-6 pt-12 pb-8">
         <div className="max-w-2xl mx-auto">
-          <h1 className="text-3xl font-bold text-foreground mb-2">
-            Hello {userName}!
-          </h1>
-          <p className="text-lg text-muted-foreground">
-            What do you want to do today?
-          </p>
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h1 className="text-3xl font-bold text-foreground mb-2">
+                Hello {userName}!
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                What do you want to do today?
+              </p>
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={signOut}
+              title="Sign out"
+            >
+              <LogOut className="w-5 h-5" />
+            </Button>
+          </div>
         </div>
       </div>
 
