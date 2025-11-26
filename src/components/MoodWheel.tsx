@@ -23,58 +23,82 @@ const MoodWheel = () => {
       if (!user) return;
 
       try {
-        // Fetch mood data from last 7 days
-        const sevenDaysAgo = new Date();
-        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-
-        const { data: moodLogs } = await supabase
-          .from('mood_logs')
-          .select('mood')
+        // Fetch user preferences to see which trackers are enabled
+        const { data: prefs } = await supabase
+          .from('user_preferences')
+          .select('*')
           .eq('user_id', user.id)
-          .gte('created_at', sevenDaysAgo.toISOString())
-          .order('created_at', { ascending: false });
-
-        // Fetch latest questionnaire results
-        const { data: anxietyResults } = await supabase
-          .from('questionnaire_results')
-          .select('score')
-          .eq('user_id', user.id)
-          .eq('questionnaire_type', 'anxiety')
-          .order('created_at', { ascending: false })
-          .limit(1)
           .maybeSingle();
 
-        const { data: depressionResults } = await supabase
-          .from('questionnaire_results')
-          .select('score')
-          .eq('user_id', user.id)
-          .eq('questionnaire_type', 'depression')
-          .order('created_at', { ascending: false })
-          .limit(1)
-          .maybeSingle();
-
-        const { data: focusResults } = await supabase
-          .from('questionnaire_results')
-          .select('score')
-          .eq('user_id', user.id)
-          .eq('questionnaire_type', 'focus')
-          .order('created_at', { ascending: false })
-          .limit(1)
-          .maybeSingle();
-
-        // Calculate mood score (convert mood strings to numbers)
+        const preferences = prefs || {
+          mood_tracker_enabled: true,
+          focus_tracker_enabled: true,
+          anxiety_tracker_enabled: true,
+          depression_tracker_enabled: true
+        };
+        // Fetch mood data from last 7 days if enabled
         let moodScore = 50;
-        if (moodLogs && moodLogs.length > 0) {
-          const moodValues = { great: 100, good: 75, okay: 50, bad: 25, terrible: 10 };
-          const avgMood = moodLogs.reduce((sum, log) => sum + (moodValues[log.mood as keyof typeof moodValues] || 50), 0) / moodLogs.length;
-          moodScore = Math.round(avgMood);
+        if (preferences.mood_tracker_enabled) {
+          const sevenDaysAgo = new Date();
+          sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+          const { data: moodLogs } = await supabase
+            .from('mood_logs')
+            .select('mood')
+            .eq('user_id', user.id)
+            .gte('created_at', sevenDaysAgo.toISOString())
+            .order('created_at', { ascending: false });
+
+          if (moodLogs && moodLogs.length > 0) {
+            const moodValues = { great: 100, good: 75, okay: 50, bad: 25, terrible: 10 };
+            const avgMood = moodLogs.reduce((sum, log) => sum + (moodValues[log.mood as keyof typeof moodValues] || 50), 0) / moodLogs.length;
+            moodScore = Math.round(avgMood);
+          }
         }
 
-        // Convert questionnaire scores to percentages (lower is better for anxiety/depression)
-        // GAD-7 max: 21, BDI max: 21, ASRS max: 28
-        const anxietyScore = anxietyResults ? Math.max(0, 100 - Math.round((anxietyResults.score / 21) * 100)) : 50;
-        const depressionScore = depressionResults ? Math.max(0, 100 - Math.round((depressionResults.score / 21) * 100)) : 50;
-        const focusScore = focusResults ? Math.round((focusResults.score / 28) * 100) : 50;
+        // Fetch latest questionnaire results if enabled
+        let anxietyScore = 50;
+        let depressionScore = 50;
+        let focusScore = 50;
+
+        if (preferences.anxiety_tracker_enabled) {
+          const { data: anxietyResults } = await supabase
+            .from('questionnaire_results')
+            .select('score')
+            .eq('user_id', user.id)
+            .eq('questionnaire_type', 'anxiety')
+            .order('created_at', { ascending: false })
+            .limit(1)
+            .maybeSingle();
+
+          anxietyScore = anxietyResults ? Math.max(0, 100 - Math.round((anxietyResults.score / 21) * 100)) : 50;
+        }
+
+        if (preferences.depression_tracker_enabled) {
+          const { data: depressionResults } = await supabase
+            .from('questionnaire_results')
+            .select('score')
+            .eq('user_id', user.id)
+            .eq('questionnaire_type', 'depression')
+            .order('created_at', { ascending: false })
+            .limit(1)
+            .maybeSingle();
+
+          depressionScore = depressionResults ? Math.max(0, 100 - Math.round((depressionResults.score / 21) * 100)) : 50;
+        }
+
+        if (preferences.focus_tracker_enabled) {
+          const { data: focusResults } = await supabase
+            .from('questionnaire_results')
+            .select('score')
+            .eq('user_id', user.id)
+            .eq('questionnaire_type', 'focus')
+            .order('created_at', { ascending: false })
+            .limit(1)
+            .maybeSingle();
+
+          focusScore = focusResults ? Math.round((focusResults.score / 28) * 100) : 50;
+        }
 
         setData({
           mood: moodScore,
@@ -98,6 +122,9 @@ const MoodWheel = () => {
       .on('postgres_changes', { event: '*', schema: 'public', table: 'questionnaire_results' }, () => {
         fetchWellnessData();
       })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'user_preferences' }, () => {
+        fetchWellnessData();
+      })
       .subscribe();
 
     return () => {
@@ -112,6 +139,16 @@ const MoodWheel = () => {
     { label: "Depression", value: data.depression, color: "stroke-wellness", size: 100 },
   ];
 
+  // Filter metrics based on enabled trackers
+  const enabledMetrics = metrics.filter((metric) => {
+    const label = metric.label.toLowerCase();
+    if (label === 'mood') return true; // Always show mood in center
+    if (label === 'focus') return data.focus !== 50;
+    if (label === 'anxiety') return data.anxiety !== 50;
+    if (label === 'depression') return data.depression !== 50;
+    return true;
+  });
+
   const getCircleProgress = (value: number, circumference: number) => {
     return circumference - (value / 100) * circumference;
   };
@@ -122,7 +159,7 @@ const MoodWheel = () => {
       
       <div className="relative w-[300px] h-[300px] flex items-center justify-center">
         <svg className="absolute inset-0 w-full h-full -rotate-90">
-          {metrics.map((metric, index) => {
+          {enabledMetrics.map((metric, index) => {
             const radius = metric.size / 2;
             const circumference = 2 * Math.PI * radius;
             const strokeDashoffset = getCircleProgress(metric.value, circumference);
@@ -165,7 +202,7 @@ const MoodWheel = () => {
 
       {/* Legend */}
       <div className="grid grid-cols-2 gap-4 mt-6 w-full">
-        {metrics.map((metric, index) => (
+        {enabledMetrics.map((metric, index) => (
           <div key={index} className="flex items-center gap-2">
             <div className={`w-3 h-3 rounded-full ${metric.color.replace('stroke-', 'bg-')}`} />
             <div className="flex-1">

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
-import { TrendingUp, LogOut, Bell, Clock, Smartphone } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { Bell, Clock, Smartphone, Settings, TrendingUp, LogOut } from "lucide-react";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import MoodWheel from "@/components/MoodWheel";
 import { useAuth } from "@/hooks/useAuth";
 import BottomNav from "@/components/BottomNav";
@@ -34,26 +34,21 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background pb-20">
       {/* Header */}
-      <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-calm px-6 pt-12 pb-8">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex justify-between items-start mb-4">
-            <div>
-              <h1 className="text-3xl font-bold text-foreground mb-2">
-                Hello {userName}!
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                What do you want to do today?
-              </p>
-            </div>
+      <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-calm px-6 pt-12 pb-8 mb-6">
+        <div className="max-w-2xl mx-auto relative">
+          <Link to="/settings">
             <Button
               variant="ghost"
               size="icon"
-              onClick={signOut}
-              title="Sign out"
+              className="absolute -top-6 right-0"
             >
-              <LogOut className="w-5 h-5" />
+              <Settings className="w-5 h-5" />
             </Button>
-          </div>
+          </Link>
+          <h1 className="text-3xl font-bold text-foreground mb-2">
+            Hello, Alex
+          </h1>
+          <p className="text-lg text-muted-foreground">How are you feeling today?</p>
         </div>
       </div>
 
