@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { ChevronLeft, Settings as SettingsIcon } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 import { supabase } from "@/integrations/supabase/client";
+import { useTranslation } from "react-i18next";
 
 interface UserPreferences {
   language: string;
@@ -34,6 +35,7 @@ const languages = [
 
 const Settings = () => {
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
   const [userId, setUserId] = useState<string | null>(null);
   const [preferences, setPreferences] = useState<UserPreferences>({
     language: 'en',
@@ -74,6 +76,7 @@ const Settings = () => {
             depression_tracker_enabled: data.depression_tracker_enabled,
             phone_dependence_tracker_enabled: data.phone_dependence_tracker_enabled
           });
+          i18n.changeLanguage(data.language);
         }
       } catch (error: any) {
         console.error('Error loading preferences:', error);
@@ -90,6 +93,10 @@ const Settings = () => {
 
     const newPreferences = { ...preferences, ...updates };
     setPreferences(newPreferences);
+
+    if (updates.language) {
+      i18n.changeLanguage(updates.language);
+    }
 
     try {
       const { data: existing } = await supabase
@@ -126,7 +133,7 @@ const Settings = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <p className="text-muted-foreground">Loading settings...</p>
+        <p className="text-muted-foreground">{t('settings.loadingSettings')}</p>
       </div>
     );
   }
@@ -142,21 +149,21 @@ const Settings = () => {
             className="mb-4 -ml-2"
           >
             <ChevronLeft className="w-4 h-4 mr-1" />
-            Back
+            {t('common.back')}
           </Button>
           <div className="flex items-center gap-3 mb-2">
             <SettingsIcon className="w-8 h-8 text-primary" />
-            <h1 className="text-3xl font-bold text-foreground">Settings</h1>
+            <h1 className="text-3xl font-bold text-foreground">{t('settings.title')}</h1>
           </div>
-          <p className="text-lg text-muted-foreground">Customize your experience</p>
+          <p className="text-lg text-muted-foreground">{t('settings.subtitle')}</p>
         </div>
       </div>
 
       <div className="container mx-auto max-w-2xl px-6 space-y-6">
         <Card className="border-border/50">
           <CardHeader>
-            <CardTitle>Language</CardTitle>
-            <CardDescription>Choose your preferred language</CardDescription>
+            <CardTitle>{t('settings.language')}</CardTitle>
+            <CardDescription>{t('settings.languageDescription')}</CardDescription>
           </CardHeader>
           <CardContent>
             <Select
@@ -164,7 +171,7 @@ const Settings = () => {
               onValueChange={(value) => updatePreferences({ language: value })}
             >
               <SelectTrigger className="w-full">
-                <SelectValue placeholder="Select language" />
+                <SelectValue placeholder={t('settings.selectLanguage')} />
               </SelectTrigger>
               <SelectContent>
                 {languages.map((lang) => (
@@ -179,19 +186,19 @@ const Settings = () => {
 
         <Card className="border-border/50">
           <CardHeader>
-            <CardTitle>Wellness Trackers</CardTitle>
+            <CardTitle>{t('settings.wellnessTrackers')}</CardTitle>
             <CardDescription>
-              Enable or disable specific trackers based on what's relevant to you
+              {t('settings.wellnessTrackersDescription')}
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             <div className="flex items-center justify-between">
               <div className="space-y-0.5">
                 <Label htmlFor="mood-tracker" className="text-base font-medium">
-                  Mood Tracker
+                  {t('settings.moodTracker')}
                 </Label>
                 <p className="text-sm text-muted-foreground">
-                  Track your daily mood levels
+                  {t('settings.moodTrackerDescription')}
                 </p>
               </div>
               <Switch
@@ -206,10 +213,10 @@ const Settings = () => {
             <div className="flex items-center justify-between">
               <div className="space-y-0.5">
                 <Label htmlFor="focus-tracker" className="text-base font-medium">
-                  Focus Tracker
+                  {t('settings.focusTracker')}
                 </Label>
                 <p className="text-sm text-muted-foreground">
-                  Monitor your attention and concentration
+                  {t('settings.focusTrackerDescription')}
                 </p>
               </div>
               <Switch
@@ -224,10 +231,10 @@ const Settings = () => {
             <div className="flex items-center justify-between">
               <div className="space-y-0.5">
                 <Label htmlFor="anxiety-tracker" className="text-base font-medium">
-                  Anxiety Tracker
+                  {t('settings.anxietyTracker')}
                 </Label>
                 <p className="text-sm text-muted-foreground">
-                  Track anxiety levels with GAD-7
+                  {t('settings.anxietyTrackerDescription')}
                 </p>
               </div>
               <Switch
@@ -242,10 +249,10 @@ const Settings = () => {
             <div className="flex items-center justify-between">
               <div className="space-y-0.5">
                 <Label htmlFor="depression-tracker" className="text-base font-medium">
-                  Depression Tracker
+                  {t('settings.depressionTracker')}
                 </Label>
                 <p className="text-sm text-muted-foreground">
-                  Monitor depression with BDI
+                  {t('settings.depressionTrackerDescription')}
                 </p>
               </div>
               <Switch
@@ -260,10 +267,10 @@ const Settings = () => {
             <div className="flex items-center justify-between">
               <div className="space-y-0.5">
                 <Label htmlFor="phone-dependence-tracker" className="text-base font-medium">
-                  Phone Dependence Tracker
+                  {t('settings.phoneDependenceTracker')}
                 </Label>
                 <p className="text-sm text-muted-foreground">
-                  Track your phone usage habits
+                  {t('settings.phoneDependenceTrackerDescription')}
                 </p>
               </div>
               <Switch

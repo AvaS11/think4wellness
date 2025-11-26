@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
+import { useTranslation } from "react-i18next";
 
 interface PhoneDependenceBarProps {
   userId: string;
@@ -11,6 +12,7 @@ interface PhoneDependenceBarProps {
 }
 
 const PhoneDependenceBar = ({ userId, enabled }: PhoneDependenceBarProps) => {
+  const { t } = useTranslation();
   const [score, setScore] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -78,13 +80,13 @@ const PhoneDependenceBar = ({ userId, enabled }: PhoneDependenceBarProps) => {
           <div className="flex items-center gap-3">
             <Smartphone className="w-5 h-5 text-accent" />
             <div>
-              <h3 className="font-semibold text-foreground">Phone Dependence</h3>
-              <p className="text-sm text-muted-foreground">No recent data</p>
+              <h3 className="font-semibold text-foreground">{t('phoneDependence.title')}</h3>
+              <p className="text-sm text-muted-foreground">{t('phoneDependence.noRecentData')}</p>
             </div>
           </div>
           <Link to="/mood">
             <Button size="sm" variant="secondary">
-              Check In
+              {t('common.checkIn')}
             </Button>
           </Link>
         </div>
@@ -99,9 +101,9 @@ const PhoneDependenceBar = ({ userId, enabled }: PhoneDependenceBarProps) => {
   };
 
   const getScoreLabel = () => {
-    if (score < 30) return "Low";
-    if (score < 60) return "Moderate";
-    return "High";
+    if (score < 30) return t('phoneDependence.low');
+    if (score < 60) return t('phoneDependence.moderate');
+    return t('phoneDependence.high');
   };
 
   return (
@@ -110,7 +112,7 @@ const PhoneDependenceBar = ({ userId, enabled }: PhoneDependenceBarProps) => {
         <div className="flex items-center gap-3">
           <Smartphone className="w-5 h-5 text-accent" />
           <div>
-            <h3 className="font-semibold text-foreground">Phone Dependence</h3>
+            <h3 className="font-semibold text-foreground">{t('phoneDependence.title')}</h3>
             <p className="text-sm text-muted-foreground">{getScoreLabel()} - {score}%</p>
           </div>
         </div>

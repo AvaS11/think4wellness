@@ -1,0 +1,114 @@
+{
+  "common": {
+    "back": "Retour",
+    "viewAll": "Voir tout",
+    "checkIn": "S'enregistrer",
+    "loading": "Chargement...",
+    "save": "Enregistrer",
+    "cancel": "Annuler"
+  },
+  "home": {
+    "hello": "Bonjour, {{name}}",
+    "howAreYouFeeling": "Comment vous sentez-vous aujourd'hui?",
+    "notifications": "Notifications",
+    "screenTime": "Temps d'écran",
+    "pickups": "Déverrouillages",
+    "yourWork": "Vos progrès",
+    "dailyMoodTracking": "Suivi quotidien de l'humeur",
+    "journalEntries": "Entrées de journal",
+    "breathingExercises": "Exercices de respiration",
+    "keepGoing": "Continuez! Vous faites du très bon travail",
+    "goalEntriesPerWeek": "Objectif: 7 entrées par semaine",
+    "goalExercisesPerWeek": "Objectif: 10 par semaine",
+    "days": "jours",
+    "thisWeek": "cette semaine",
+    "completed": "terminé"
+  },
+  "settings": {
+    "title": "Paramètres",
+    "subtitle": "Personnalisez votre expérience",
+    "language": "Langue",
+    "languageDescription": "Choisissez votre langue préférée",
+    "selectLanguage": "Sélectionner la langue",
+    "wellnessTrackers": "Trackers de bien-être",
+    "wellnessTrackersDescription": "Activez ou désactivez des trackers spécifiques en fonction de ce qui est pertinent pour vous",
+    "moodTracker": "Tracker d'humeur",
+    "moodTrackerDescription": "Suivez vos niveaux d'humeur quotidiens",
+    "focusTracker": "Tracker de concentration",
+    "focusTrackerDescription": "Surveillez votre attention et votre concentration",
+    "anxietyTracker": "Tracker d'anxiété",
+    "anxietyTrackerDescription": "Suivez les niveaux d'anxiété avec GAD-7",
+    "depressionTracker": "Tracker de dépression",
+    "depressionTrackerDescription": "Surveillez la dépression avec BDI",
+    "phoneDependenceTracker": "Tracker de dépendance au téléphone",
+    "phoneDependenceTrackerDescription": "Suivez vos habitudes d'utilisation du téléphone",
+    "settingsSaved": "Paramètres enregistrés",
+    "failedToSave": "Échec de l'enregistrement des paramètres",
+    "loadingSettings": "Chargement des paramètres...",
+    "pleaseLogin": "Veuillez vous connecter pour accéder aux paramètres"
+  },
+  "moodWheel": {
+    "wellnessSnapshot": "Aperçu du bien-être",
+    "mood": "Humeur",
+    "focus": "Concentration",
+    "anxiety": "Anxiété",
+    "depression": "Dépression",
+    "noData": "Pas encore de données"
+  },
+  "phoneDependence": {
+    "title": "Dépendance au téléphone",
+    "noRecentData": "Aucune donnée récente",
+    "low": "Faible",
+    "moderate": "Modérée",
+    "high": "Élevée"
+  },
+  "missingData": {
+    "title": "Enregistrements manquants",
+    "noRecentMood": "Aucune donnée d'humeur récente",
+    "noRecentAnxiety": "Aucune donnée d'anxiété récente",
+    "noRecentDepression": "Aucune donnée de dépression récente",
+    "noRecentFocus": "Aucune donnée de concentration récente"
+  },
+  "bottomNav": {
+    "learn": "Apprendre",
+    "reflect": "Réfléchir",
+    "checkIn": "S'enregistrer"
+  },
+  "auth": {
+    "welcome": "Bienvenue",
+    "login": "Connexion",
+    "signup": "S'inscrire",
+    "email": "Email",
+    "password": "Mot de passe",
+    "forgotPassword": "Mot de passe oublié?",
+    "dontHaveAccount": "Vous n'avez pas de compte?",
+    "alreadyHaveAccount": "Vous avez déjà un compte?",
+    "signInWithGoogle": "Se connecter avec Google",
+    "orContinueWith": "Ou continuer avec"
+  },
+  "welcome": {
+    "title": "Bienvenue sur think.",
+    "subtitle": "Votre compagnon de bien-être personnel",
+    "haveAccount": "Oui, j'ai un compte.",
+    "newUser": "Non, je suis ravi de commencer!"
+  },
+  "mood": {
+    "title": "Comment vous sentez-vous?",
+    "anxietyQuestionnaire": "Questionnaire sur l'anxiété",
+    "anxietyDescription": "Évaluation GAD-7",
+    "depressionQuestionnaire": "Questionnaire sur la dépression",
+    "depressionDescription": "Inventaire de dépression de Beck",
+    "focusQuestionnaire": "Questionnaire de concentration",
+    "focusDescription": "Échelle d'auto-évaluation pour adultes",
+    "phoneHabitsQuestionnaire": "Habitudes téléphoniques",
+    "phoneHabitsDescription": "Vérification du bien-être numérique"
+  },
+  "analytics": {
+    "title": "Analyses",
+    "notifications": "Notifications",
+    "screenTime": "Temps d'écran",
+    "pickups": "Déverrouillages du téléphone",
+    "daily": "Quotidien",
+    "weekly": "Hebdomadaire"
+  }
+}

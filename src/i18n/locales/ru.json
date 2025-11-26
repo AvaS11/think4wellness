@@ -1,0 +1,114 @@
+{
+  "common": {
+    "back": "Назад",
+    "viewAll": "Посмотреть все",
+    "checkIn": "Зарегистрироваться",
+    "loading": "Загрузка...",
+    "save": "Сохранить",
+    "cancel": "Отменить"
+  },
+  "home": {
+    "hello": "Привет, {{name}}",
+    "howAreYouFeeling": "Как вы себя чувствуете сегодня?",
+    "notifications": "Уведомления",
+    "screenTime": "Экранное время",
+    "pickups": "Разблокировки",
+    "yourWork": "Ваш прогресс",
+    "dailyMoodTracking": "Ежедневное отслеживание настроения",
+    "journalEntries": "Записи в дневнике",
+    "breathingExercises": "Дыхательные упражнения",
+    "keepGoing": "Продолжайте! Вы отлично справляетесь",
+    "goalEntriesPerWeek": "Цель: 7 записей в неделю",
+    "goalExercisesPerWeek": "Цель: 10 в неделю",
+    "days": "дней",
+    "thisWeek": "на этой неделе",
+    "completed": "завершено"
+  },
+  "settings": {
+    "title": "Настройки",
+    "subtitle": "Настройте свой опыт",
+    "language": "Язык",
+    "languageDescription": "Выберите предпочитаемый язык",
+    "selectLanguage": "Выбрать язык",
+    "wellnessTrackers": "Трекеры благополучия",
+    "wellnessTrackersDescription": "Включите или отключите определенные трекеры в зависимости от того, что вам актуально",
+    "moodTracker": "Трекер настроения",
+    "moodTrackerDescription": "Отслеживайте свои ежедневные уровни настроения",
+    "focusTracker": "Трекер концентрации",
+    "focusTrackerDescription": "Следите за своим вниманием и концентрацией",
+    "anxietyTracker": "Трекер тревоги",
+    "anxietyTrackerDescription": "Отслеживайте уровни тревоги с помощью GAD-7",
+    "depressionTracker": "Трекер депрессии",
+    "depressionTrackerDescription": "Следите за депрессией с помощью BDI",
+    "phoneDependenceTracker": "Трекер зависимости от телефона",
+    "phoneDependenceTrackerDescription": "Отслеживайте свои привычки использования телефона",
+    "settingsSaved": "Настройки сохранены",
+    "failedToSave": "Не удалось сохранить настройки",
+    "loadingSettings": "Загрузка настроек...",
+    "pleaseLogin": "Пожалуйста, войдите, чтобы получить доступ к настройкам"
+  },
+  "moodWheel": {
+    "wellnessSnapshot": "Снимок благополучия",
+    "mood": "Настроение",
+    "focus": "Концентрация",
+    "anxiety": "Тревога",
+    "depression": "Депрессия",
+    "noData": "Пока нет данных"
+  },
+  "phoneDependence": {
+    "title": "Зависимость от телефона",
+    "noRecentData": "Нет недавних данных",
+    "low": "Низкая",
+    "moderate": "Умеренная",
+    "high": "Высокая"
+  },
+  "missingData": {
+    "title": "Пропущенные регистрации",
+    "noRecentMood": "Нет недавних данных о настроении",
+    "noRecentAnxiety": "Нет недавних данных о тревоге",
+    "noRecentDepression": "Нет недавних данных о депрессии",
+    "noRecentFocus": "Нет недавних данных о концентрации"
+  },
+  "bottomNav": {
+    "learn": "Учиться",
+    "reflect": "Размышлять",
+    "checkIn": "Зарегистрироваться"
+  },
+  "auth": {
+    "welcome": "Добро пожаловать",
+    "login": "Вход",
+    "signup": "Регистрация",
+    "email": "Электронная почта",
+    "password": "Пароль",
+    "forgotPassword": "Забыли пароль?",
+    "dontHaveAccount": "Нет аккаунта?",
+    "alreadyHaveAccount": "Уже есть аккаунт?",
+    "signInWithGoogle": "Войти через Google",
+    "orContinueWith": "Или продолжить с"
+  },
+  "welcome": {
+    "title": "Добро пожаловать в think.",
+    "subtitle": "Ваш личный помощник по благополучию",
+    "haveAccount": "Да, у меня есть аккаунт.",
+    "newUser": "Нет, я рад начать!"
+  },
+  "mood": {
+    "title": "Как вы себя чувствуете?",
+    "anxietyQuestionnaire": "Опросник тревоги",
+    "anxietyDescription": "Оценка GAD-7",
+    "depressionQuestionnaire": "Опросник депрессии",
+    "depressionDescription": "Опросник депрессии Бека",
+    "focusQuestionnaire": "Опросник концентрации",
+    "focusDescription": "Шкала самоотчета для взрослых",
+    "phoneHabitsQuestionnaire": "Привычки телефона",
+    "phoneHabitsDescription": "Проверка цифрового благополучия"
+  },
+  "analytics": {
+    "title": "Аналитика",
+    "notifications": "Уведомления",
+    "screenTime": "Экранное время",
+    "pickups": "Разблокировки телефона",
+    "daily": "Ежедневно",
+    "weekly": "Еженедельно"
+  }
+}

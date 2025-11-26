@@ -1,0 +1,114 @@
+{
+  "common": {
+    "back": "戻る",
+    "viewAll": "すべて表示",
+    "checkIn": "チェックイン",
+    "loading": "読み込み中...",
+    "save": "保存",
+    "cancel": "キャンセル"
+  },
+  "home": {
+    "hello": "こんにちは、{{name}}",
+    "howAreYouFeeling": "今日はどんな気分ですか？",
+    "notifications": "通知",
+    "screenTime": "スクリーンタイム",
+    "pickups": "ピックアップ",
+    "yourWork": "あなたの進捗",
+    "dailyMoodTracking": "毎日の気分追跡",
+    "journalEntries": "日記エントリー",
+    "breathingExercises": "呼吸エクササイズ",
+    "keepGoing": "続けてください！素晴らしいです",
+    "goalEntriesPerWeek": "目標：週7エントリー",
+    "goalExercisesPerWeek": "目標：週10回",
+    "days": "日",
+    "thisWeek": "今週",
+    "completed": "完了"
+  },
+  "settings": {
+    "title": "設定",
+    "subtitle": "体験をカスタマイズ",
+    "language": "言語",
+    "languageDescription": "お好みの言語を選択してください",
+    "selectLanguage": "言語を選択",
+    "wellnessTrackers": "ウェルネストラッカー",
+    "wellnessTrackersDescription": "関連する特定のトラッカーを有効または無効にする",
+    "moodTracker": "気分トラッカー",
+    "moodTrackerDescription": "毎日の気分レベルを追跡",
+    "focusTracker": "集中力トラッカー",
+    "focusTrackerDescription": "注意力と集中力を監視",
+    "anxietyTracker": "不安トラッカー",
+    "anxietyTrackerDescription": "GAD-7で不安レベルを追跡",
+    "depressionTracker": "うつ病トラッカー",
+    "depressionTrackerDescription": "BDIでうつ病を監視",
+    "phoneDependenceTracker": "スマホ依存トラッカー",
+    "phoneDependenceTrackerDescription": "スマホ使用習慣を追跡",
+    "settingsSaved": "設定が保存されました",
+    "failedToSave": "設定の保存に失敗しました",
+    "loadingSettings": "設定を読み込み中...",
+    "pleaseLogin": "設定にアクセスするにはログインしてください"
+  },
+  "moodWheel": {
+    "wellnessSnapshot": "ウェルネススナップショット",
+    "mood": "気分",
+    "focus": "集中",
+    "anxiety": "不安",
+    "depression": "うつ",
+    "noData": "まだデータがありません"
+  },
+  "phoneDependence": {
+    "title": "スマホ依存",
+    "noRecentData": "最近のデータがありません",
+    "low": "低",
+    "moderate": "中",
+    "high": "高"
+  },
+  "missingData": {
+    "title": "未記録のチェックイン",
+    "noRecentMood": "最近の気分データがありません",
+    "noRecentAnxiety": "最近の不安データがありません",
+    "noRecentDepression": "最近のうつデータがありません",
+    "noRecentFocus": "最近の集中データがありません"
+  },
+  "bottomNav": {
+    "learn": "学ぶ",
+    "reflect": "振り返る",
+    "checkIn": "チェックイン"
+  },
+  "auth": {
+    "welcome": "ようこそ",
+    "login": "ログイン",
+    "signup": "サインアップ",
+    "email": "メール",
+    "password": "パスワード",
+    "forgotPassword": "パスワードをお忘れですか？",
+    "dontHaveAccount": "アカウントをお持ちでないですか？",
+    "alreadyHaveAccount": "すでにアカウントをお持ちですか？",
+    "signInWithGoogle": "Googleでサインイン",
+    "orContinueWith": "または続ける"
+  },
+  "welcome": {
+    "title": "think.へようこそ",
+    "subtitle": "あなたの個人的なウェルネスコンパニオン",
+    "haveAccount": "はい、アカウントを持っています。",
+    "newUser": "いいえ、始めるのが楽しみです！"
+  },
+  "mood": {
+    "title": "どんな気分ですか？",
+    "anxietyQuestionnaire": "不安アンケート",
+    "anxietyDescription": "GAD-7評価",
+    "depressionQuestionnaire": "うつ病アンケート",
+    "depressionDescription": "ベックうつ病調査票",
+    "focusQuestionnaire": "集中力アンケート",
+    "focusDescription": "成人自己報告尺度",
+    "phoneHabitsQuestionnaire": "スマホ習慣",
+    "phoneHabitsDescription": "デジタルウェルネスチェック"
+  },
+  "analytics": {
+    "title": "分析",
+    "notifications": "通知",
+    "screenTime": "スクリーンタイム",
+    "pickups": "スマホピックアップ",
+    "daily": "毎日",
+    "weekly": "毎週"
+  }
+}

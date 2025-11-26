@@ -1,0 +1,114 @@
+{
+  "common": {
+    "back": "Back",
+    "viewAll": "View All",
+    "checkIn": "Check In",
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "home": {
+    "hello": "Hello, {{name}}",
+    "howAreYouFeeling": "How are you feeling today?",
+    "notifications": "Notifications",
+    "screenTime": "Screen Time",
+    "pickups": "Pickups",
+    "yourWork": "Your Work",
+    "dailyMoodTracking": "Daily Mood Tracking",
+    "journalEntries": "Journal Entries",
+    "breathingExercises": "Breathing Exercises",
+    "keepGoing": "Keep going! You're doing great",
+    "goalEntriesPerWeek": "Goal: 7 entries per week",
+    "goalExercisesPerWeek": "Goal: 10 per week",
+    "days": "days",
+    "thisWeek": "this week",
+    "completed": "completed"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Customize your experience",
+    "language": "Language",
+    "languageDescription": "Choose your preferred language",
+    "selectLanguage": "Select language",
+    "wellnessTrackers": "Wellness Trackers",
+    "wellnessTrackersDescription": "Enable or disable specific trackers based on what's relevant to you",
+    "moodTracker": "Mood Tracker",
+    "moodTrackerDescription": "Track your daily mood levels",
+    "focusTracker": "Focus Tracker",
+    "focusTrackerDescription": "Monitor your attention and concentration",
+    "anxietyTracker": "Anxiety Tracker",
+    "anxietyTrackerDescription": "Track anxiety levels with GAD-7",
+    "depressionTracker": "Depression Tracker",
+    "depressionTrackerDescription": "Monitor depression with BDI",
+    "phoneDependenceTracker": "Phone Dependence Tracker",
+    "phoneDependenceTrackerDescription": "Track your phone usage habits",
+    "settingsSaved": "Settings saved",
+    "failedToSave": "Failed to save settings",
+    "loadingSettings": "Loading settings...",
+    "pleaseLogin": "Please log in to access settings"
+  },
+  "moodWheel": {
+    "wellnessSnapshot": "Wellness Snapshot",
+    "mood": "Mood",
+    "focus": "Focus",
+    "anxiety": "Anxiety",
+    "depression": "Depression",
+    "noData": "No data yet"
+  },
+  "phoneDependence": {
+    "title": "Phone Dependence",
+    "noRecentData": "No recent data",
+    "low": "Low",
+    "moderate": "Moderate",
+    "high": "High"
+  },
+  "missingData": {
+    "title": "Missing Check-ins",
+    "noRecentMood": "No recent Mood data",
+    "noRecentAnxiety": "No recent Anxiety data",
+    "noRecentDepression": "No recent Depression data",
+    "noRecentFocus": "No recent Focus data"
+  },
+  "bottomNav": {
+    "learn": "Learn",
+    "reflect": "Reflect",
+    "checkIn": "Check-in"
+  },
+  "auth": {
+    "welcome": "Welcome",
+    "login": "Login",
+    "signup": "Sign Up",
+    "email": "Email",
+    "password": "Password",
+    "forgotPassword": "Forgot Password?",
+    "dontHaveAccount": "Don't have an account?",
+    "alreadyHaveAccount": "Already have an account?",
+    "signInWithGoogle": "Sign in with Google",
+    "orContinueWith": "Or continue with"
+  },
+  "welcome": {
+    "title": "Welcome to think.",
+    "subtitle": "Your personal wellness companion",
+    "haveAccount": "Yes, I have an account.",
+    "newUser": "No, I am excited to start!"
+  },
+  "mood": {
+    "title": "How are you feeling?",
+    "anxietyQuestionnaire": "Anxiety Questionnaire",
+    "anxietyDescription": "GAD-7 Assessment",
+    "depressionQuestionnaire": "Depression Questionnaire",
+    "depressionDescription": "Beck Depression Inventory",
+    "focusQuestionnaire": "Focus Questionnaire",
+    "focusDescription": "Adult Self-Report Scale",
+    "phoneHabitsQuestionnaire": "Phone Habits",
+    "phoneHabitsDescription": "Digital Wellness Check"
+  },
+  "analytics": {
+    "title": "Analytics",
+    "notifications": "Notifications",
+    "screenTime": "Screen Time",
+    "pickups": "Phone Pickups",
+    "daily": "Daily",
+    "weekly": "Weekly"
+  }
+}

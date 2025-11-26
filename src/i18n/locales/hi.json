@@ -1,0 +1,114 @@
+{
+  "common": {
+    "back": "वापस",
+    "viewAll": "सभी देखें",
+    "checkIn": "चेक-इन",
+    "loading": "लोड हो रहा है...",
+    "save": "सहेजें",
+    "cancel": "रद्द करें"
+  },
+  "home": {
+    "hello": "नमस्ते, {{name}}",
+    "howAreYouFeeling": "आज आप कैसा महसूस कर रहे हैं?",
+    "notifications": "सूचनाएं",
+    "screenTime": "स्क्रीन समय",
+    "pickups": "फोन उठाना",
+    "yourWork": "आपकी प्रगति",
+    "dailyMoodTracking": "दैनिक मूड ट्रैकिंग",
+    "journalEntries": "डायरी प्रविष्टियां",
+    "breathingExercises": "श्वास अभ्यास",
+    "keepGoing": "जारी रखें! आप बहुत अच्छा कर रहे हैं",
+    "goalEntriesPerWeek": "लक्ष्य: प्रति सप्ताह 7 प्रविष्टियां",
+    "goalExercisesPerWeek": "लक्ष्य: प्रति सप्ताह 10",
+    "days": "दिन",
+    "thisWeek": "इस सप्ताह",
+    "completed": "पूर्ण"
+  },
+  "settings": {
+    "title": "सेटिंग्स",
+    "subtitle": "अपने अनुभव को अनुकूलित करें",
+    "language": "भाषा",
+    "languageDescription": "अपनी पसंदीदा भाषा चुनें",
+    "selectLanguage": "भाषा चुनें",
+    "wellnessTrackers": "कल्याण ट्रैकर्स",
+    "wellnessTrackersDescription": "आपके लिए प्रासंगिक विशिष्ट ट्रैकर्स को सक्षम या अक्षम करें",
+    "moodTracker": "मूड ट्रैकर",
+    "moodTrackerDescription": "अपने दैनिक मूड स्तर को ट्रैक करें",
+    "focusTracker": "फोकस ट्रैकर",
+    "focusTrackerDescription": "अपने ध्यान और एकाग्रता की निगरानी करें",
+    "anxietyTracker": "चिंता ट्रैकर",
+    "anxietyTrackerDescription": "GAD-7 के साथ चिंता स्तर को ट्रैक करें",
+    "depressionTracker": "अवसाद ट्रैकर",
+    "depressionTrackerDescription": "BDI के साथ अवसाद की निगरानी करें",
+    "phoneDependenceTracker": "फोन निर्भरता ट्रैकर",
+    "phoneDependenceTrackerDescription": "अपनी फोन उपयोग की आदतों को ट्रैक करें",
+    "settingsSaved": "सेटिंग्स सहेजी गईं",
+    "failedToSave": "सेटिंग्स सहेजने में विफल",
+    "loadingSettings": "सेटिंग्स लोड हो रही हैं...",
+    "pleaseLogin": "कृपया सेटिंग्स तक पहुंचने के लिए लॉगिन करें"
+  },
+  "moodWheel": {
+    "wellnessSnapshot": "कल्याण स्नैपशॉट",
+    "mood": "मूड",
+    "focus": "फोकस",
+    "anxiety": "चिंता",
+    "depression": "अवसाद",
+    "noData": "अभी तक कोई डेटा नहीं"
+  },
+  "phoneDependence": {
+    "title": "फोन निर्भरता",
+    "noRecentData": "कोई हालिया डेटा नहीं",
+    "low": "कम",
+    "moderate": "मध्यम",
+    "high": "उच्च"
+  },
+  "missingData": {
+    "title": "लापता चेक-इन",
+    "noRecentMood": "कोई हालिया मूड डेटा नहीं",
+    "noRecentAnxiety": "कोई हालिया चिंता डेटा नहीं",
+    "noRecentDepression": "कोई हालिया अवसाद डेटा नहीं",
+    "noRecentFocus": "कोई हालिया फोकस डेटा नहीं"
+  },
+  "bottomNav": {
+    "learn": "सीखें",
+    "reflect": "चिंतन करें",
+    "checkIn": "चेक-इन"
+  },
+  "auth": {
+    "welcome": "स्वागत है",
+    "login": "लॉगिन",
+    "signup": "साइन अप",
+    "email": "ईमेल",
+    "password": "पासवर्ड",
+    "forgotPassword": "पासवर्ड भूल गए?",
+    "dontHaveAccount": "खाता नहीं है?",
+    "alreadyHaveAccount": "पहले से खाता है?",
+    "signInWithGoogle": "Google के साथ साइन इन करें",
+    "orContinueWith": "या जारी रखें"
+  },
+  "welcome": {
+    "title": "think. में आपका स्वागत है",
+    "subtitle": "आपका व्यक्तिगत कल्याण साथी",
+    "haveAccount": "हां, मेरे पास खाता है।",
+    "newUser": "नहीं, मैं शुरू करने के लिए उत्साहित हूं!"
+  },
+  "mood": {
+    "title": "आप कैसा महसूस कर रहे हैं?",
+    "anxietyQuestionnaire": "चिंता प्रश्नावली",
+    "anxietyDescription": "GAD-7 मूल्यांकन",
+    "depressionQuestionnaire": "अवसाद प्रश्नावली",
+    "depressionDescription": "बेक अवसाद सूची",
+    "focusQuestionnaire": "फोकस प्रश्नावली",
+    "focusDescription": "वयस्क स्व-रिपोर्ट स्केल",
+    "phoneHabitsQuestionnaire": "फोन की आदतें",
+    "phoneHabitsDescription": "डिजिटल कल्याण जांच"
+  },
+  "analytics": {
+    "title": "विश्लेषण",
+    "notifications": "सूचनाएं",
+    "screenTime": "स्क्रीन समय",
+    "pickups": "फोन उठाना",
+    "daily": "दैनिक",
+    "weekly": "साप्ताहिक"
+  }
+}

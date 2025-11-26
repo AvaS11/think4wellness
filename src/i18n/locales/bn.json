@@ -1,0 +1,114 @@
+{
+  "common": {
+    "back": "ফিরে যান",
+    "viewAll": "সব দেখুন",
+    "checkIn": "চেক-ইন",
+    "loading": "লোড হচ্ছে...",
+    "save": "সংরক্ষণ করুন",
+    "cancel": "বাতিল করুন"
+  },
+  "home": {
+    "hello": "হ্যালো, {{name}}",
+    "howAreYouFeeling": "আজ আপনি কেমন অনুভব করছেন?",
+    "notifications": "বিজ্ঞপ্তি",
+    "screenTime": "স্ক্রিন সময়",
+    "pickups": "তোলা",
+    "yourWork": "আপনার অগ্রগতি",
+    "dailyMoodTracking": "দৈনিক মেজাজ ট্র্যাকিং",
+    "journalEntries": "ডায়েরি এন্ট্রি",
+    "breathingExercises": "শ্বাস-প্রশ্বাসের ব্যায়াম",
+    "keepGoing": "চালিয়ে যান! আপনি দুর্দান্ত করছেন",
+    "goalEntriesPerWeek": "লক্ষ্য: প্রতি সপ্তাহে 7টি এন্ট্রি",
+    "goalExercisesPerWeek": "লক্ষ্য: প্রতি সপ্তাহে 10টি",
+    "days": "দিন",
+    "thisWeek": "এই সপ্তাহে",
+    "completed": "সম্পূর্ণ"
+  },
+  "settings": {
+    "title": "সেটিংস",
+    "subtitle": "আপনার অভিজ্ঞতা কাস্টমাইজ করুন",
+    "language": "ভাষা",
+    "languageDescription": "আপনার পছন্দের ভাষা নির্বাচন করুন",
+    "selectLanguage": "ভাষা নির্বাচন করুন",
+    "wellnessTrackers": "সুস্থতা ট্র্যাকার",
+    "wellnessTrackersDescription": "আপনার জন্য প্রাসঙ্গিক নির্দিষ্ট ট্র্যাকার সক্ষম বা অক্ষম করুন",
+    "moodTracker": "মেজাজ ট্র্যাকার",
+    "moodTrackerDescription": "আপনার দৈনিক মেজাজ স্তর ট্র্যাক করুন",
+    "focusTracker": "ফোকাস ট্র্যাকার",
+    "focusTrackerDescription": "আপনার মনোযোগ এবং একাগ্রতা পর্যবেক্ষণ করুন",
+    "anxietyTracker": "উদ্বেগ ট্র্যাকার",
+    "anxietyTrackerDescription": "GAD-7 দিয়ে উদ্বেগ স্তর ট্র্যাক করুন",
+    "depressionTracker": "বিষণ্নতা ট্র্যাকার",
+    "depressionTrackerDescription": "BDI দিয়ে বিষণ্নতা পর্যবেক্ষণ করুন",
+    "phoneDependenceTracker": "ফোন নির্ভরতা ট্র্যাকার",
+    "phoneDependenceTrackerDescription": "আপনার ফোন ব্যবহারের অভ্যাস ট্র্যাক করুন",
+    "settingsSaved": "সেটিংস সংরক্ষিত হয়েছে",
+    "failedToSave": "সেটিংস সংরক্ষণ করতে ব্যর্থ",
+    "loadingSettings": "সেটিংস লোড হচ্ছে...",
+    "pleaseLogin": "সেটিংস অ্যাক্সেস করতে অনুগ্রহ করে লগইন করুন"
+  },
+  "moodWheel": {
+    "wellnessSnapshot": "সুস্থতার স্ন্যাপশট",
+    "mood": "মেজাজ",
+    "focus": "ফোকাস",
+    "anxiety": "উদ্বেগ",
+    "depression": "বিষণ্নতা",
+    "noData": "এখনও কোনো ডেটা নেই"
+  },
+  "phoneDependence": {
+    "title": "ফোন নির্ভরতা",
+    "noRecentData": "কোন সাম্প্রতিক ডেটা নেই",
+    "low": "কম",
+    "moderate": "মাঝারি",
+    "high": "উচ্চ"
+  },
+  "missingData": {
+    "title": "অনুপস্থিত চেক-ইন",
+    "noRecentMood": "কোন সাম্প্রতিক মেজাজ ডেটা নেই",
+    "noRecentAnxiety": "কোন সাম্প্রতিক উদ্বেগ ডেটা নেই",
+    "noRecentDepression": "কোন সাম্প্রতিক বিষণ্নতা ডেটা নেই",
+    "noRecentFocus": "কোন সাম্প্রতিক ফোকাস ডেটা নেই"
+  },
+  "bottomNav": {
+    "learn": "শিখুন",
+    "reflect": "চিন্তা করুন",
+    "checkIn": "চেক-ইন"
+  },
+  "auth": {
+    "welcome": "স্বাগতম",
+    "login": "লগইন",
+    "signup": "সাইন আপ",
+    "email": "ইমেইল",
+    "password": "পাসওয়ার্ড",
+    "forgotPassword": "পাসওয়ার্ড ভুলে গেছেন?",
+    "dontHaveAccount": "অ্যাকাউন্ট নেই?",
+    "alreadyHaveAccount": "ইতিমধ্যে অ্যাকাউন্ট আছে?",
+    "signInWithGoogle": "Google দিয়ে সাইন ইন করুন",
+    "orContinueWith": "অথবা চালিয়ে যান"
+  },
+  "welcome": {
+    "title": "think. এ স্বাগতম",
+    "subtitle": "আপনার ব্যক্তিগত সুস্থতা সঙ্গী",
+    "haveAccount": "হ্যাঁ, আমার একটি অ্যাকাউন্ট আছে।",
+    "newUser": "না, আমি শুরু করতে উত্সাহিত!"
+  },
+  "mood": {
+    "title": "আপনি কেমন অনুভব করছেন?",
+    "anxietyQuestionnaire": "উদ্বেগ প্রশ্নাবলী",
+    "anxietyDescription": "GAD-7 মূল্যায়ন",
+    "depressionQuestionnaire": "বিষণ্নতা প্রশ্নাবলী",
+    "depressionDescription": "বেক বিষণ্নতা তালিকা",
+    "focusQuestionnaire": "ফোকাস প্রশ্নাবলী",
+    "focusDescription": "প্রাপ্তবয়স্ক স্ব-রিপোর্ট স্কেল",
+    "phoneHabitsQuestionnaire": "ফোন অভ্যাস",
+    "phoneHabitsDescription": "ডিজিটাল সুস্থতা পরীক্ষা"
+  },
+  "analytics": {
+    "title": "বিশ্লেষণ",
+    "notifications": "বিজ্ঞপ্তি",
+    "screenTime": "স্ক্রিন সময়",
+    "pickups": "ফোন তোলা",
+    "daily": "দৈনিক",
+    "weekly": "সাপ্তাহিক"
+  }
+}
