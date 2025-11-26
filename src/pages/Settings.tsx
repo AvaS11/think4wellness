@@ -16,6 +16,7 @@ interface UserPreferences {
   focus_tracker_enabled: boolean;
   anxiety_tracker_enabled: boolean;
   depression_tracker_enabled: boolean;
+  phone_dependence_tracker_enabled: boolean;
 }
 
 const languages = [
@@ -39,7 +40,8 @@ const Settings = () => {
     mood_tracker_enabled: true,
     focus_tracker_enabled: true,
     anxiety_tracker_enabled: true,
-    depression_tracker_enabled: true
+    depression_tracker_enabled: true,
+    phone_dependence_tracker_enabled: true
   });
   const [loading, setLoading] = useState(true);
 
@@ -69,7 +71,8 @@ const Settings = () => {
             mood_tracker_enabled: data.mood_tracker_enabled,
             focus_tracker_enabled: data.focus_tracker_enabled,
             anxiety_tracker_enabled: data.anxiety_tracker_enabled,
-            depression_tracker_enabled: data.depression_tracker_enabled
+            depression_tracker_enabled: data.depression_tracker_enabled,
+            phone_dependence_tracker_enabled: data.phone_dependence_tracker_enabled
           });
         }
       } catch (error: any) {
@@ -250,6 +253,24 @@ const Settings = () => {
                 checked={preferences.depression_tracker_enabled}
                 onCheckedChange={(checked) =>
                   updatePreferences({ depression_tracker_enabled: checked })
+                }
+              />
+            </div>
+
+            <div className="flex items-center justify-between">
+              <div className="space-y-0.5">
+                <Label htmlFor="phone-dependence-tracker" className="text-base font-medium">
+                  Phone Dependence Tracker
+                </Label>
+                <p className="text-sm text-muted-foreground">
+                  Track your phone usage habits
+                </p>
+              </div>
+              <Switch
+                id="phone-dependence-tracker"
+                checked={preferences.phone_dependence_tracker_enabled}
+                onCheckedChange={(checked) =>
+                  updatePreferences({ phone_dependence_tracker_enabled: checked })
                 }
               />
             </div>

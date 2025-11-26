@@ -74,6 +74,7 @@ export type Database = {
           id: string
           language: string
           mood_tracker_enabled: boolean
+          phone_dependence_tracker_enabled: boolean
           updated_at: string
           user_id: string
         }
@@ -85,6 +86,7 @@ export type Database = {
           id?: string
           language?: string
           mood_tracker_enabled?: boolean
+          phone_dependence_tracker_enabled?: boolean
           updated_at?: string
           user_id: string
         }
@@ -96,6 +98,7 @@ export type Database = {
           id?: string
           language?: string
           mood_tracker_enabled?: boolean
+          phone_dependence_tracker_enabled?: boolean
           updated_at?: string
           user_id?: string
         }
