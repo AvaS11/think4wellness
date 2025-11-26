@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Heart, BookOpen, Video, Calendar, Clipboard, Smile, TrendingUp, LogOut } from "lucide-react";
+import { Heart, BookOpen, Video, Calendar, Clipboard, Smile, TrendingUp, LogOut, Bell, Clock, Smartphone } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import MoodWheel from "@/components/MoodWheel";
 import { useAuth } from "@/hooks/useAuth";
@@ -64,8 +64,34 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Mood Wheel Visualization */}
+      {/* Stats Section */}
       <div className="px-6 pt-6 max-w-2xl mx-auto">
+        <div className="grid grid-cols-3 gap-3 mb-8">
+          <Card className="p-4 border-border/50 bg-card">
+            <div className="flex flex-col items-center gap-2">
+              <Bell className="w-6 h-6 text-primary" />
+              <p className="text-2xl font-bold text-foreground">47</p>
+              <p className="text-xs text-muted-foreground text-center">Notifications</p>
+            </div>
+          </Card>
+          
+          <Card className="p-4 border-border/50 bg-card">
+            <div className="flex flex-col items-center gap-2">
+              <Clock className="w-6 h-6 text-secondary" />
+              <p className="text-2xl font-bold text-foreground">4h 23m</p>
+              <p className="text-xs text-muted-foreground text-center">Screen Time</p>
+            </div>
+          </Card>
+          
+          <Card className="p-4 border-border/50 bg-card">
+            <div className="flex flex-col items-center gap-2">
+              <Smartphone className="w-6 h-6 text-accent" />
+              <p className="text-2xl font-bold text-foreground">89</p>
+              <p className="text-xs text-muted-foreground text-center">Pickups</p>
+            </div>
+          </Card>
+        </div>
+
         <div className="mb-8">
           <MoodWheel />
         </div>
