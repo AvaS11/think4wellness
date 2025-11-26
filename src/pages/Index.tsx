@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Heart, BookOpen, Video, Calendar, Clipboard, Smile, TrendingUp, LogOut, Bell, Clock, Smartphone } from "lucide-react";
+import { TrendingUp, LogOut, Bell, Clock, Smartphone } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import MoodWheel from "@/components/MoodWheel";
 import { useAuth } from "@/hooks/useAuth";
+import BottomNav from "@/components/BottomNav";
 
 const Index = () => {
   const [userName] = useState("Alex");
@@ -29,11 +30,6 @@ const Index = () => {
     return null;
   }
 
-  const activities = [
-    { icon: BookOpen, label: "Learn", color: "bg-calm/60 text-calm-foreground", link: "/resources" },
-    { icon: Heart, label: "Reflect", color: "bg-calm/60 text-calm-foreground", link: "/journal" },
-    { icon: Clipboard, label: "Check-in", color: "bg-calm/60 text-calm-foreground", link: "/mood" },
-  ];
 
   return (
     <div className="min-h-screen bg-background pb-20">
@@ -147,21 +143,7 @@ const Index = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border px-6 py-4">
-        <div className="max-w-2xl mx-auto grid grid-cols-3 gap-3">
-          {activities.map((activity, index) => {
-            const Icon = activity.icon;
-            return (
-              <Link key={index} to={activity.link}>
-                <Card className={`p-4 flex flex-col items-center gap-2 hover:shadow-[var(--shadow-soft)] transition-all border-border/50 ${activity.color}`}>
-                  <Icon className="w-6 h-6" />
-                  <span className="text-xs font-medium text-center">{activity.label}</span>
-                </Card>
-              </Link>
-            );
-          })}
-        </div>
-      </div>
+      <BottomNav />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { ArrowLeft, Bell, Clock, Smartphone } from "lucide-react";
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, ResponsiveContainer } from "recharts";
+import BottomNav from "@/components/BottomNav";
 
 const Analytics = () => {
   const { type } = useParams<{ type: string }>();
@@ -76,7 +77,7 @@ const Analytics = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background pb-8">
+    <div className="min-h-screen bg-background pb-24">
       {/* Header */}
       <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-calm px-6 pt-12 pb-8">
         <div className="max-w-2xl mx-auto">
@@ -158,6 +159,9 @@ const Analytics = () => {
           </ChartContainer>
         </Card>
       </div>
+      
+      {/* Bottom Navigation */}
+      <BottomNav />
     </div>
   );
 };
