@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Brain, Heart, Lightbulb, Users, BookOpen, Phone } from "lucide-react";
+import BottomNav from "@/components/BottomNav";
 
 const Resources = () => {
   const resourceCategories = [
@@ -147,30 +148,7 @@ const Resources = () => {
       </div>
 
       {/* Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border px-6 py-4">
-        <div className="max-w-2xl mx-auto flex justify-around">
-          <a href="/" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
-            <Heart className="w-6 h-6" />
-            <span className="text-xs font-medium">Home</span>
-          </a>
-          <a href="/mood" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
-            <Brain className="w-6 h-6" />
-            <span className="text-xs font-medium">Mood</span>
-          </a>
-          <a href="/breathing" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
-            <Heart className="w-6 h-6" />
-            <span className="text-xs font-medium">Breathe</span>
-          </a>
-          <a href="/journal" className="flex flex-col items-center gap-1 text-muted-foreground hover:text-primary transition-colors">
-            <BookOpen className="w-6 h-6" />
-            <span className="text-xs font-medium">Journal</span>
-          </a>
-          <a href="/resources" className="flex flex-col items-center gap-1 text-primary">
-            <Phone className="w-6 h-6" />
-            <span className="text-xs font-medium">More</span>
-          </a>
-        </div>
-      </div>
+      <BottomNav />
     </div>
   );
 };
