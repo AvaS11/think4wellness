@@ -31,9 +31,6 @@ const Index = () => {
 
   const activities = [
     { icon: BookOpen, label: "Learn", color: "bg-calm/60 text-calm-foreground", link: "/resources" },
-    { icon: Video, label: "Watch", color: "bg-calm/60 text-calm-foreground", link: "/resources" },
-    { icon: BookOpen, label: "Journal", color: "bg-calm/60 text-calm-foreground", link: "/journal" },
-    { icon: Smile, label: "Feelings", color: "bg-calm/60 text-calm-foreground", link: "/mood" },
     { icon: Heart, label: "Reflect", color: "bg-calm/60 text-calm-foreground", link: "/journal" },
     { icon: Clipboard, label: "Check-in", color: "bg-calm/60 text-calm-foreground", link: "/mood" },
   ];
@@ -67,29 +64,35 @@ const Index = () => {
       {/* Stats Section */}
       <div className="px-6 pt-6 max-w-2xl mx-auto">
         <div className="grid grid-cols-3 gap-3 mb-8">
-          <Card className="p-4 border-border/50 bg-card">
-            <div className="flex flex-col items-center gap-2">
-              <Bell className="w-6 h-6 text-primary" />
-              <p className="text-2xl font-bold text-foreground">47</p>
-              <p className="text-xs text-muted-foreground text-center">Notifications</p>
-            </div>
-          </Card>
+          <Link to="/analytics/notifications">
+            <Card className="p-4 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer">
+              <div className="flex flex-col items-center gap-2">
+                <Bell className="w-6 h-6 text-primary" />
+                <p className="text-2xl font-bold text-foreground">47</p>
+                <p className="text-xs text-muted-foreground text-center">Notifications</p>
+              </div>
+            </Card>
+          </Link>
           
-          <Card className="p-4 border-border/50 bg-card">
-            <div className="flex flex-col items-center gap-2">
-              <Clock className="w-6 h-6 text-secondary" />
-              <p className="text-2xl font-bold text-foreground">4h 23m</p>
-              <p className="text-xs text-muted-foreground text-center">Screen Time</p>
-            </div>
-          </Card>
+          <Link to="/analytics/screen-time">
+            <Card className="p-4 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer">
+              <div className="flex flex-col items-center gap-2">
+                <Clock className="w-6 h-6 text-secondary" />
+                <p className="text-2xl font-bold text-foreground">4h 23m</p>
+                <p className="text-xs text-muted-foreground text-center">Screen Time</p>
+              </div>
+            </Card>
+          </Link>
           
-          <Card className="p-4 border-border/50 bg-card">
-            <div className="flex flex-col items-center gap-2">
-              <Smartphone className="w-6 h-6 text-accent" />
-              <p className="text-2xl font-bold text-foreground">89</p>
-              <p className="text-xs text-muted-foreground text-center">Pickups</p>
-            </div>
-          </Card>
+          <Link to="/analytics/pickups">
+            <Card className="p-4 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer">
+              <div className="flex flex-col items-center gap-2">
+                <Smartphone className="w-6 h-6 text-accent" />
+                <p className="text-2xl font-bold text-foreground">89</p>
+                <p className="text-xs text-muted-foreground text-center">Pickups</p>
+              </div>
+            </Card>
+          </Link>
         </div>
 
         <div className="mb-8">

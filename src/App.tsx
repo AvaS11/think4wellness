@@ -10,6 +10,7 @@ import Journal from "./pages/Journal";
 import Resources from "./pages/Resources";
 import Welcome from "./pages/Welcome";
 import Auth from "./pages/Auth";
+import Analytics from "./pages/Analytics";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/breathing" element={<Breathing />} />
           <Route path="/journal" element={<Journal />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/analytics/:type" element={<Analytics />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
