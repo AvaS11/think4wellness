@@ -58,35 +58,29 @@ const Index = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="px-6 pt-6 max-w-2xl mx-auto">
-        <div className="grid grid-cols-3 gap-3 mb-8">
-          <Link to="/analytics/notifications">
-            <Card className="p-4 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer">
-              <div className="flex flex-col items-center gap-2">
-                <Bell className="w-6 h-6 text-primary" />
-                <p className="text-2xl font-bold text-foreground">47</p>
-                <p className="text-xs text-muted-foreground text-center">Notifications</p>
-              </div>
+      <div className="px-4 pt-6 max-w-2xl mx-auto">
+        <div className="grid grid-cols-3 gap-2 mb-8">
+          <Link to="/analytics/notifications" className="flex">
+            <Card className="w-full aspect-square flex flex-col items-center justify-center gap-1.5 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer p-3">
+              <Bell className="w-5 h-5 text-primary flex-shrink-0" />
+              <p className="text-xl font-bold text-foreground leading-none">47</p>
+              <p className="text-[10px] text-muted-foreground text-center leading-tight">Notifications</p>
             </Card>
           </Link>
           
-          <Link to="/analytics/screen-time">
-            <Card className="p-4 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer">
-              <div className="flex flex-col items-center gap-2">
-                <Clock className="w-6 h-6 text-secondary" />
-                <p className="text-2xl font-bold text-foreground">4h 23m</p>
-                <p className="text-xs text-muted-foreground text-center">Screen Time</p>
-              </div>
+          <Link to="/analytics/screen-time" className="flex">
+            <Card className="w-full aspect-square flex flex-col items-center justify-center gap-1.5 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer p-3">
+              <Clock className="w-5 h-5 text-secondary flex-shrink-0" />
+              <p className="text-xl font-bold text-foreground leading-none">4h 23m</p>
+              <p className="text-[10px] text-muted-foreground text-center leading-tight">Screen Time</p>
             </Card>
           </Link>
           
-          <Link to="/analytics/pickups">
-            <Card className="p-4 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer">
-              <div className="flex flex-col items-center gap-2">
-                <Smartphone className="w-6 h-6 text-accent" />
-                <p className="text-2xl font-bold text-foreground">89</p>
-                <p className="text-xs text-muted-foreground text-center">Pickups</p>
-              </div>
+          <Link to="/analytics/pickups" className="flex">
+            <Card className="w-full aspect-square flex flex-col items-center justify-center gap-1.5 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer p-3">
+              <Smartphone className="w-5 h-5 text-accent flex-shrink-0" />
+              <p className="text-xl font-bold text-foreground leading-none">89</p>
+              <p className="text-[10px] text-muted-foreground text-center leading-tight">Pickups</p>
             </Card>
           </Link>
         </div>
