@@ -1,40 +1,20 @@
-import { BookOpen, Heart, Clipboard, Home } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
-import { Card } from "@/components/ui/card";
+import { Home, BookOpen, Heart, Menu } from "lucide-react";
+import { cn } from "@/lib/utils";
+import NavLink from "./NavLink";
+import { useTranslation } from "react-i18next";
 
 const BottomNav = () => {
-  const location = useLocation();
+  const { t } = useTranslation();
   
-  const navItems = [
-    { icon: Home, label: "Home", link: "/home" },
-    { icon: BookOpen, label: "Learn", link: "/resources" },
-    { icon: Heart, label: "Reflect", link: "/journal" },
-    { icon: Clipboard, label: "Check-in", link: "/mood" },
-  ];
-
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border px-4 py-3">
-      <div className="max-w-2xl mx-auto grid grid-cols-4 gap-2">
-        {navItems.map((item, index) => {
-          const Icon = item.icon;
-          const isActive = location.pathname === item.link;
-          return (
-            <Link key={index} to={item.link} className="flex">
-              <Card 
-                className={`w-full aspect-square flex flex-col items-center justify-center gap-1.5 hover:shadow-[var(--shadow-soft)] transition-all border-border/50 ${
-                  isActive 
-                    ? "bg-calm text-calm-foreground" 
-                    : "bg-calm/60 text-calm-foreground"
-                }`}
-              >
-                <Icon className="w-5 h-5 flex-shrink-0" />
-                <span className="text-[10px] font-medium text-center leading-tight">{item.label}</span>
-              </Card>
-            </Link>
-          );
-        })}
+    <nav className="fixed bottom-0 left-0 right-0 bg-card border-t border-border/50 px-6 py-3 z-50">
+      <div className="max-w-2xl mx-auto flex items-center justify-around">
+        <NavLink to="/resources" icon={BookOpen} label={t('bottomNav.learn')} />
+        <NavLink to="/journal" icon={Heart} label={t('bottomNav.reflect')} />
+        <NavLink to="/home" icon={Home} label="" isCenter />
+        <NavLink to="/mood" icon={Menu} label={t('bottomNav.checkIn')} />
       </div>
-    </div>
+    </nav>
   );
 };
 

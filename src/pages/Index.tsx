@@ -9,11 +9,13 @@ import MissingDataPrompts from "@/components/MissingDataPrompts";
 import { useAuth } from "@/hooks/useAuth";
 import BottomNav from "@/components/BottomNav";
 import { supabase } from "@/integrations/supabase/client";
+import { useTranslation } from "react-i18next";
 
 const Index = () => {
   const [userName] = useState("Alex");
   const { user, loading, signOut } = useAuth();
   const navigate = useNavigate();
+  const { t, i18n } = useTranslation();
   const [preferences, setPreferences] = useState<any>(null);
 
   useEffect(() => {
@@ -32,22 +34,28 @@ const Index = () => {
         .eq('user_id', user.id)
         .maybeSingle();
 
-      setPreferences(data || {
+      const prefs = data || {
+        language: 'en',
         mood_tracker_enabled: true,
         focus_tracker_enabled: true,
         anxiety_tracker_enabled: true,
         depression_tracker_enabled: true,
         phone_dependence_tracker_enabled: true
-      });
+      };
+      
+      setPreferences(prefs);
+      if (data?.language) {
+        i18n.changeLanguage(data.language);
+      }
     };
 
     fetchPreferences();
-  }, [user]);
+  }, [user, i18n]);
 
   if (loading) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
-        <p className="text-foreground">Loading...</p>
+        <p className="text-foreground">{t('common.loading')}</p>
       </div>
     );
   }
@@ -72,9 +80,9 @@ const Index = () => {
             </Button>
           </Link>
           <h1 className="text-3xl font-bold text-foreground mb-2">
-            Hello, Alex
+            {t('home.hello', { name: userName })}
           </h1>
-          <p className="text-lg text-muted-foreground">How are you feeling today?</p>
+          <p className="text-lg text-muted-foreground">{t('home.howAreYouFeeling')}</p>
         </div>
       </div>
 
@@ -85,7 +93,7 @@ const Index = () => {
             <Card className="w-full aspect-square flex flex-col items-center justify-center gap-1.5 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer p-3">
               <Bell className="w-5 h-5 text-primary flex-shrink-0" />
               <p className="text-xl font-bold text-foreground leading-none">47</p>
-              <p className="text-[10px] text-muted-foreground text-center leading-tight">Notifications</p>
+              <p className="text-[10px] text-muted-foreground text-center leading-tight">{t('home.notifications')}</p>
             </Card>
           </Link>
           
@@ -93,7 +101,7 @@ const Index = () => {
             <Card className="w-full aspect-square flex flex-col items-center justify-center gap-1.5 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer p-3">
               <Clock className="w-5 h-5 text-secondary flex-shrink-0" />
               <p className="text-xl font-bold text-foreground leading-none">4h 23m</p>
-              <p className="text-[10px] text-muted-foreground text-center leading-tight">Screen Time</p>
+              <p className="text-[10px] text-muted-foreground text-center leading-tight">{t('home.screenTime')}</p>
             </Card>
           </Link>
           
@@ -101,7 +109,7 @@ const Index = () => {
             <Card className="w-full aspect-square flex flex-col items-center justify-center gap-1.5 border-border/50 bg-card hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer p-3">
               <Smartphone className="w-5 h-5 text-accent flex-shrink-0" />
               <p className="text-xl font-bold text-foreground leading-none">89</p>
-              <p className="text-[10px] text-muted-foreground text-center leading-tight">Pickups</p>
+              <p className="text-[10px] text-muted-foreground text-center leading-tight">{t('home.pickups')}</p>
             </Card>
           </Link>
         </div>
@@ -139,42 +147,42 @@ const Index = () => {
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-semibold text-foreground flex items-center gap-2">
               <TrendingUp className="w-5 h-5 text-secondary" />
-              Your Work
+              {t('home.yourWork')}
             </h2>
-            <Button variant="ghost" size="sm">View All</Button>
+            <Button variant="ghost" size="sm">{t('common.viewAll')}</Button>
           </div>
           <div className="space-y-3">
             <Card className="p-5 border-border/50 hover:shadow-[var(--shadow-soft)] transition-all">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-semibold text-foreground">Daily Mood Tracking</h3>
-                <span className="text-sm font-medium text-primary">7 days</span>
+                <h3 className="font-semibold text-foreground">{t('home.dailyMoodTracking')}</h3>
+                <span className="text-sm font-medium text-primary">7 {t('home.days')}</span>
               </div>
               <div className="w-full bg-calm rounded-full h-2 mb-2">
                 <div className="bg-primary rounded-full h-2" style={{ width: '70%' }}></div>
               </div>
-              <p className="text-xs text-muted-foreground">Keep going! You're doing great</p>
+              <p className="text-xs text-muted-foreground">{t('home.keepGoing')}</p>
             </Card>
             
             <Card className="p-5 border-border/50 hover:shadow-[var(--shadow-soft)] transition-all">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-semibold text-foreground">Journal Entries</h3>
-                <span className="text-sm font-medium text-secondary">3 this week</span>
+                <h3 className="font-semibold text-foreground">{t('home.journalEntries')}</h3>
+                <span className="text-sm font-medium text-secondary">3 {t('home.thisWeek')}</span>
               </div>
               <div className="w-full bg-calm rounded-full h-2 mb-2">
                 <div className="bg-secondary rounded-full h-2" style={{ width: '43%' }}></div>
               </div>
-              <p className="text-xs text-muted-foreground">Goal: 7 entries per week</p>
+              <p className="text-xs text-muted-foreground">{t('home.goalEntriesPerWeek')}</p>
             </Card>
 
             <Card className="p-5 border-border/50 hover:shadow-[var(--shadow-soft)] transition-all">
               <div className="flex items-center justify-between mb-3">
-                <h3 className="font-semibold text-foreground">Breathing Exercises</h3>
-                <span className="text-sm font-medium text-accent">5 completed</span>
+                <h3 className="font-semibold text-foreground">{t('home.breathingExercises')}</h3>
+                <span className="text-sm font-medium text-accent">5 {t('home.completed')}</span>
               </div>
               <div className="w-full bg-calm rounded-full h-2 mb-2">
                 <div className="bg-accent rounded-full h-2" style={{ width: '50%' }}></div>
               </div>
-              <p className="text-xs text-muted-foreground">Goal: 10 per week</p>
+              <p className="text-xs text-muted-foreground">{t('home.goalExercisesPerWeek')}</p>
             </Card>
           </div>
         </div>

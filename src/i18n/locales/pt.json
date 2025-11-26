@@ -1,0 +1,114 @@
+{
+  "common": {
+    "back": "Voltar",
+    "viewAll": "Ver Tudo",
+    "checkIn": "Registrar",
+    "loading": "Carregando...",
+    "save": "Salvar",
+    "cancel": "Cancelar"
+  },
+  "home": {
+    "hello": "Olá, {{name}}",
+    "howAreYouFeeling": "Como você está se sentindo hoje?",
+    "notifications": "Notificações",
+    "screenTime": "Tempo de Tela",
+    "pickups": "Desbloqueios",
+    "yourWork": "Seu Progresso",
+    "dailyMoodTracking": "Rastreamento Diário de Humor",
+    "journalEntries": "Entradas de Diário",
+    "breathingExercises": "Exercícios de Respiração",
+    "keepGoing": "Continue! Você está indo muito bem",
+    "goalEntriesPerWeek": "Meta: 7 entradas por semana",
+    "goalExercisesPerWeek": "Meta: 10 por semana",
+    "days": "dias",
+    "thisWeek": "esta semana",
+    "completed": "concluído"
+  },
+  "settings": {
+    "title": "Configurações",
+    "subtitle": "Personalize sua experiência",
+    "language": "Idioma",
+    "languageDescription": "Escolha seu idioma preferido",
+    "selectLanguage": "Selecionar idioma",
+    "wellnessTrackers": "Rastreadores de Bem-estar",
+    "wellnessTrackersDescription": "Ative ou desative rastreadores específicos com base no que é relevante para você",
+    "moodTracker": "Rastreador de Humor",
+    "moodTrackerDescription": "Rastreie seus níveis de humor diários",
+    "focusTracker": "Rastreador de Foco",
+    "focusTrackerDescription": "Monitore sua atenção e concentração",
+    "anxietyTracker": "Rastreador de Ansiedade",
+    "anxietyTrackerDescription": "Rastreie níveis de ansiedade com GAD-7",
+    "depressionTracker": "Rastreador de Depressão",
+    "depressionTrackerDescription": "Monitore a depressão com BDI",
+    "phoneDependenceTracker": "Rastreador de Dependência do Telefone",
+    "phoneDependenceTrackerDescription": "Rastreie seus hábitos de uso do telefone",
+    "settingsSaved": "Configurações salvas",
+    "failedToSave": "Falha ao salvar configurações",
+    "loadingSettings": "Carregando configurações...",
+    "pleaseLogin": "Por favor, faça login para acessar as configurações"
+  },
+  "moodWheel": {
+    "wellnessSnapshot": "Instantâneo de Bem-estar",
+    "mood": "Humor",
+    "focus": "Foco",
+    "anxiety": "Ansiedade",
+    "depression": "Depressão",
+    "noData": "Ainda sem dados"
+  },
+  "phoneDependence": {
+    "title": "Dependência do Telefone",
+    "noRecentData": "Sem dados recentes",
+    "low": "Baixa",
+    "moderate": "Moderada",
+    "high": "Alta"
+  },
+  "missingData": {
+    "title": "Registros Pendentes",
+    "noRecentMood": "Sem dados recentes de Humor",
+    "noRecentAnxiety": "Sem dados recentes de Ansiedade",
+    "noRecentDepression": "Sem dados recentes de Depressão",
+    "noRecentFocus": "Sem dados recentes de Foco"
+  },
+  "bottomNav": {
+    "learn": "Aprender",
+    "reflect": "Refletir",
+    "checkIn": "Registrar"
+  },
+  "auth": {
+    "welcome": "Bem-vindo",
+    "login": "Entrar",
+    "signup": "Cadastrar",
+    "email": "Email",
+    "password": "Senha",
+    "forgotPassword": "Esqueceu a senha?",
+    "dontHaveAccount": "Não tem uma conta?",
+    "alreadyHaveAccount": "Já tem uma conta?",
+    "signInWithGoogle": "Entrar com Google",
+    "orContinueWith": "Ou continuar com"
+  },
+  "welcome": {
+    "title": "Bem-vindo ao think.",
+    "subtitle": "Seu companheiro pessoal de bem-estar",
+    "haveAccount": "Sim, eu tenho uma conta.",
+    "newUser": "Não, estou animado para começar!"
+  },
+  "mood": {
+    "title": "Como você está se sentindo?",
+    "anxietyQuestionnaire": "Questionário de Ansiedade",
+    "anxietyDescription": "Avaliação GAD-7",
+    "depressionQuestionnaire": "Questionário de Depressão",
+    "depressionDescription": "Inventário de Depressão de Beck",
+    "focusQuestionnaire": "Questionário de Foco",
+    "focusDescription": "Escala de Autorrelato para Adultos",
+    "phoneHabitsQuestionnaire": "Hábitos do Telefone",
+    "phoneHabitsDescription": "Verificação de Bem-estar Digital"
+  },
+  "analytics": {
+    "title": "Análises",
+    "notifications": "Notificações",
+    "screenTime": "Tempo de Tela",
+    "pickups": "Desbloqueios do Telefone",
+    "daily": "Diário",
+    "weekly": "Semanal"
+  }
+}

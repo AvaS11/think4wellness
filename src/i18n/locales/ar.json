@@ -1,0 +1,114 @@
+{
+  "common": {
+    "back": "رجوع",
+    "viewAll": "عرض الكل",
+    "checkIn": "تسجيل الدخول",
+    "loading": "جاري التحميل...",
+    "save": "حفظ",
+    "cancel": "إلغاء"
+  },
+  "home": {
+    "hello": "مرحباً، {{name}}",
+    "howAreYouFeeling": "كيف تشعر اليوم؟",
+    "notifications": "الإشعارات",
+    "screenTime": "وقت الشاشة",
+    "pickups": "عدد الفتحات",
+    "yourWork": "تقدمك",
+    "dailyMoodTracking": "تتبع المزاج اليومي",
+    "journalEntries": "إدخالات اليوميات",
+    "breathingExercises": "تمارين التنفس",
+    "keepGoing": "استمر! أنت تقوم بعمل رائع",
+    "goalEntriesPerWeek": "الهدف: 7 إدخالات في الأسبوع",
+    "goalExercisesPerWeek": "الهدف: 10 في الأسبوع",
+    "days": "أيام",
+    "thisWeek": "هذا الأسبوع",
+    "completed": "مكتمل"
+  },
+  "settings": {
+    "title": "الإعدادات",
+    "subtitle": "خصص تجربتك",
+    "language": "اللغة",
+    "languageDescription": "اختر لغتك المفضلة",
+    "selectLanguage": "اختر اللغة",
+    "wellnessTrackers": "متتبعات العافية",
+    "wellnessTrackersDescription": "قم بتمكين أو تعطيل متتبعات معينة بناءً على ما يناسبك",
+    "moodTracker": "متتبع المزاج",
+    "moodTrackerDescription": "تتبع مستويات مزاجك اليومي",
+    "focusTracker": "متتبع التركيز",
+    "focusTrackerDescription": "راقب انتباهك وتركيزك",
+    "anxietyTracker": "متتبع القلق",
+    "anxietyTrackerDescription": "تتبع مستويات القلق باستخدام GAD-7",
+    "depressionTracker": "متتبع الاكتئاب",
+    "depressionTrackerDescription": "راقب الاكتئاب باستخدام BDI",
+    "phoneDependenceTracker": "متتبع الاعتماد على الهاتف",
+    "phoneDependenceTrackerDescription": "تتبع عادات استخدام الهاتف",
+    "settingsSaved": "تم حفظ الإعدادات",
+    "failedToSave": "فشل حفظ الإعدادات",
+    "loadingSettings": "جاري تحميل الإعدادات...",
+    "pleaseLogin": "يرجى تسجيل الدخول للوصول إلى الإعدادات"
+  },
+  "moodWheel": {
+    "wellnessSnapshot": "لمحة عن العافية",
+    "mood": "المزاج",
+    "focus": "التركيز",
+    "anxiety": "القلق",
+    "depression": "الاكتئاب",
+    "noData": "لا توجد بيانات حتى الآن"
+  },
+  "phoneDependence": {
+    "title": "الاعتماد على الهاتف",
+    "noRecentData": "لا توجد بيانات حديثة",
+    "low": "منخفض",
+    "moderate": "متوسط",
+    "high": "مرتفع"
+  },
+  "missingData": {
+    "title": "التسجيلات المفقودة",
+    "noRecentMood": "لا توجد بيانات مزاج حديثة",
+    "noRecentAnxiety": "لا توجد بيانات قلق حديثة",
+    "noRecentDepression": "لا توجد بيانات اكتئاب حديثة",
+    "noRecentFocus": "لا توجد بيانات تركيز حديثة"
+  },
+  "bottomNav": {
+    "learn": "تعلم",
+    "reflect": "تأمل",
+    "checkIn": "تسجيل الدخول"
+  },
+  "auth": {
+    "welcome": "مرحباً",
+    "login": "تسجيل الدخول",
+    "signup": "التسجيل",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "dontHaveAccount": "ليس لديك حساب؟",
+    "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+    "signInWithGoogle": "تسجيل الدخول باستخدام Google",
+    "orContinueWith": "أو المتابعة باستخدام"
+  },
+  "welcome": {
+    "title": "مرحباً بك في think.",
+    "subtitle": "رفيقك الشخصي للعافية",
+    "haveAccount": "نعم، لدي حساب.",
+    "newUser": "لا، أنا متحمس للبدء!"
+  },
+  "mood": {
+    "title": "كيف تشعر؟",
+    "anxietyQuestionnaire": "استبيان القلق",
+    "anxietyDescription": "تقييم GAD-7",
+    "depressionQuestionnaire": "استبيان الاكتئاب",
+    "depressionDescription": "قائمة بيك للاكتئاب",
+    "focusQuestionnaire": "استبيان التركيز",
+    "focusDescription": "مقياس التقرير الذاتي للبالغين",
+    "phoneHabitsQuestionnaire": "عادات الهاتف",
+    "phoneHabitsDescription": "فحص العافية الرقمية"
+  },
+  "analytics": {
+    "title": "التحليلات",
+    "notifications": "الإشعارات",
+    "screenTime": "وقت الشاشة",
+    "pickups": "عدد فتح الهاتف",
+    "daily": "يومي",
+    "weekly": "أسبوعي"
+  }
+}

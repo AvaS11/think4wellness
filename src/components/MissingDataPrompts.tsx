@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { Heart, Brain, AlertCircle, Focus } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 interface MissingDataPromptsProps {
   userId: string;
@@ -22,6 +23,7 @@ interface MissingTracker {
 }
 
 const MissingDataPrompts = ({ userId, preferences }: MissingDataPromptsProps) => {
+  const { t } = useTranslation();
   const [missingTrackers, setMissingTrackers] = useState<MissingTracker[]>([]);
 
   useEffect(() => {
@@ -43,7 +45,7 @@ const MissingDataPrompts = ({ userId, preferences }: MissingDataPromptsProps) =>
 
         if (!moodData) {
           missing.push({
-            name: "Mood",
+            name: t('moodWheel.mood'),
             icon: <Heart className="w-4 h-4" />,
             type: "mood_logs"
           });
@@ -63,7 +65,7 @@ const MissingDataPrompts = ({ userId, preferences }: MissingDataPromptsProps) =>
 
         if (!anxietyData) {
           missing.push({
-            name: "Anxiety",
+            name: t('moodWheel.anxiety'),
             icon: <AlertCircle className="w-4 h-4" />,
             type: "anxiety"
           });
@@ -83,7 +85,7 @@ const MissingDataPrompts = ({ userId, preferences }: MissingDataPromptsProps) =>
 
         if (!depressionData) {
           missing.push({
-            name: "Depression",
+            name: t('moodWheel.depression'),
             icon: <Brain className="w-4 h-4" />,
             type: "depression"
           });
@@ -103,7 +105,7 @@ const MissingDataPrompts = ({ userId, preferences }: MissingDataPromptsProps) =>
 
         if (!focusData) {
           missing.push({
-            name: "Focus",
+            name: t('moodWheel.focus'),
             icon: <Focus className="w-4 h-4" />,
             type: "focus"
           });
@@ -120,17 +122,17 @@ const MissingDataPrompts = ({ userId, preferences }: MissingDataPromptsProps) =>
 
   return (
     <Card className="p-4 border-border/50 bg-accent/5">
-      <h3 className="font-semibold text-foreground mb-3">Missing Check-ins</h3>
+      <h3 className="font-semibold text-foreground mb-3">{t('missingData.title')}</h3>
       <div className="space-y-2">
         {missingTrackers.map((tracker) => (
           <div key={tracker.type} className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               {tracker.icon}
-              <span>No recent {tracker.name} data</span>
+              <span>{t(`missingData.noRecent${tracker.name}`)}</span>
             </div>
             <Link to="/mood">
               <Button size="sm" variant="ghost">
-                Check In
+                {t('common.checkIn')}
               </Button>
             </Link>
           </div>

@@ -1,0 +1,114 @@
+{
+  "common": {
+    "back": "返回",
+    "viewAll": "查看全部",
+    "checkIn": "签到",
+    "loading": "加载中...",
+    "save": "保存",
+    "cancel": "取消"
+  },
+  "home": {
+    "hello": "你好，{{name}}",
+    "howAreYouFeeling": "你今天感觉如何？",
+    "notifications": "通知",
+    "screenTime": "屏幕时间",
+    "pickups": "拿起次数",
+    "yourWork": "你的进展",
+    "dailyMoodTracking": "每日情绪追踪",
+    "journalEntries": "日记条目",
+    "breathingExercises": "呼吸练习",
+    "keepGoing": "继续加油！你做得很好",
+    "goalEntriesPerWeek": "目标：每周7条",
+    "goalExercisesPerWeek": "目标：每周10次",
+    "days": "天",
+    "thisWeek": "本周",
+    "completed": "已完成"
+  },
+  "settings": {
+    "title": "设置",
+    "subtitle": "自定义你的体验",
+    "language": "语言",
+    "languageDescription": "选择你的首选语言",
+    "selectLanguage": "选择语言",
+    "wellnessTrackers": "健康追踪器",
+    "wellnessTrackersDescription": "根据与你相关的内容启用或禁用特定追踪器",
+    "moodTracker": "情绪追踪器",
+    "moodTrackerDescription": "追踪你的每日情绪水平",
+    "focusTracker": "专注力追踪器",
+    "focusTrackerDescription": "监控你的注意力和专注度",
+    "anxietyTracker": "焦虑追踪器",
+    "anxietyTrackerDescription": "使用GAD-7追踪焦虑水平",
+    "depressionTracker": "抑郁追踪器",
+    "depressionTrackerDescription": "使用BDI监控抑郁状况",
+    "phoneDependenceTracker": "手机依赖追踪器",
+    "phoneDependenceTrackerDescription": "追踪你的手机使用习惯",
+    "settingsSaved": "设置已保存",
+    "failedToSave": "保存设置失败",
+    "loadingSettings": "加载设置中...",
+    "pleaseLogin": "请登录以访问设置"
+  },
+  "moodWheel": {
+    "wellnessSnapshot": "健康快照",
+    "mood": "情绪",
+    "focus": "专注",
+    "anxiety": "焦虑",
+    "depression": "抑郁",
+    "noData": "暂无数据"
+  },
+  "phoneDependence": {
+    "title": "手机依赖",
+    "noRecentData": "无最近数据",
+    "low": "低",
+    "moderate": "中等",
+    "high": "高"
+  },
+  "missingData": {
+    "title": "缺失的签到",
+    "noRecentMood": "无最近情绪数据",
+    "noRecentAnxiety": "无最近焦虑数据",
+    "noRecentDepression": "无最近抑郁数据",
+    "noRecentFocus": "无最近专注数据"
+  },
+  "bottomNav": {
+    "learn": "学习",
+    "reflect": "反思",
+    "checkIn": "签到"
+  },
+  "auth": {
+    "welcome": "欢迎",
+    "login": "登录",
+    "signup": "注册",
+    "email": "邮箱",
+    "password": "密码",
+    "forgotPassword": "忘记密码？",
+    "dontHaveAccount": "还没有账户？",
+    "alreadyHaveAccount": "已有账户？",
+    "signInWithGoogle": "使用Google登录",
+    "orContinueWith": "或继续使用"
+  },
+  "welcome": {
+    "title": "欢迎来到think.",
+    "subtitle": "你的个人健康伙伴",
+    "haveAccount": "是的，我有账户。",
+    "newUser": "没有，我很高兴开始！"
+  },
+  "mood": {
+    "title": "你感觉如何？",
+    "anxietyQuestionnaire": "焦虑问卷",
+    "anxietyDescription": "GAD-7评估",
+    "depressionQuestionnaire": "抑郁问卷",
+    "depressionDescription": "贝克抑郁量表",
+    "focusQuestionnaire": "专注力问卷",
+    "focusDescription": "成人自我报告量表",
+    "phoneHabitsQuestionnaire": "手机习惯",
+    "phoneHabitsDescription": "数字健康检查"
+  },
+  "analytics": {
+    "title": "分析",
+    "notifications": "通知",
+    "screenTime": "屏幕时间",
+    "pickups": "手机拿起次数",
+    "daily": "每日",
+    "weekly": "每周"
+  }
+}
