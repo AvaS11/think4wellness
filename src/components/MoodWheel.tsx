@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
+import { supabase } from "@/integrations/supabase/client";
 
 interface MoodData {
   mood: number;
@@ -8,13 +10,100 @@ interface MoodData {
 }
 
 const MoodWheel = () => {
-  // Sample data - scores out of 100
-  const data: MoodData = {
-    mood: 75,
-    focus: 60,
-    anxiety: 35,
-    depression: 25,
-  };
+  const [data, setData] = useState<MoodData>({
+    mood: 50,
+    focus: 50,
+    anxiety: 50,
+    depression: 50,
+  });
+
+  useEffect(() => {
+    const fetchWellnessData = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (!user) return;
+
+      try {
+        // Fetch mood data from last 7 days
+        const sevenDaysAgo = new Date();
+        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+
+        const { data: moodLogs } = await supabase
+          .from('mood_logs')
+          .select('mood')
+          .eq('user_id', user.id)
+          .gte('created_at', sevenDaysAgo.toISOString())
+          .order('created_at', { ascending: false });
+
+        // Fetch latest questionnaire results
+        const { data: anxietyResults } = await supabase
+          .from('questionnaire_results')
+          .select('score')
+          .eq('user_id', user.id)
+          .eq('questionnaire_type', 'anxiety')
+          .order('created_at', { ascending: false })
+          .limit(1)
+          .maybeSingle();
+
+        const { data: depressionResults } = await supabase
+          .from('questionnaire_results')
+          .select('score')
+          .eq('user_id', user.id)
+          .eq('questionnaire_type', 'depression')
+          .order('created_at', { ascending: false })
+          .limit(1)
+          .maybeSingle();
+
+        const { data: focusResults } = await supabase
+          .from('questionnaire_results')
+          .select('score')
+          .eq('user_id', user.id)
+          .eq('questionnaire_type', 'focus')
+          .order('created_at', { ascending: false })
+          .limit(1)
+          .maybeSingle();
+
+        // Calculate mood score (convert mood strings to numbers)
+        let moodScore = 50;
+        if (moodLogs && moodLogs.length > 0) {
+          const moodValues = { great: 100, good: 75, okay: 50, bad: 25, terrible: 10 };
+          const avgMood = moodLogs.reduce((sum, log) => sum + (moodValues[log.mood as keyof typeof moodValues] || 50), 0) / moodLogs.length;
+          moodScore = Math.round(avgMood);
+        }
+
+        // Convert questionnaire scores to percentages (lower is better for anxiety/depression)
+        // GAD-7 max: 21, BDI max: 21, ASRS max: 28
+        const anxietyScore = anxietyResults ? Math.max(0, 100 - Math.round((anxietyResults.score / 21) * 100)) : 50;
+        const depressionScore = depressionResults ? Math.max(0, 100 - Math.round((depressionResults.score / 21) * 100)) : 50;
+        const focusScore = focusResults ? Math.round((focusResults.score / 28) * 100) : 50;
+
+        setData({
+          mood: moodScore,
+          focus: focusScore,
+          anxiety: anxietyScore,
+          depression: depressionScore,
+        });
+      } catch (error) {
+        console.error('Error fetching wellness data:', error);
+      }
+    };
+
+    fetchWellnessData();
+
+    // Subscribe to real-time updates
+    const moodChannel = supabase
+      .channel('wellness-updates')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'mood_logs' }, () => {
+        fetchWellnessData();
+      })
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'questionnaire_results' }, () => {
+        fetchWellnessData();
+      })
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(moodChannel);
+    };
+  }, []);
 
   const metrics = [
     { label: "Mood", value: data.mood, color: "stroke-primary", size: 280 },
