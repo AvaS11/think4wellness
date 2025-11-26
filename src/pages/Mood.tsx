@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Smile, Meh, Frown, Angry, Heart, Calendar } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Smile, Meh, Frown, Angry, Heart, Calendar, Brain, Activity, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -7,6 +8,7 @@ import { toast } from "sonner";
 import BottomNav from "@/components/BottomNav";
 
 const Mood = () => {
+  const navigate = useNavigate();
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
   const [note, setNote] = useState("");
   const [userName] = useState("Alex");
@@ -97,6 +99,55 @@ const Mood = () => {
             Start logging your moods to see patterns and insights over time.
           </p>
         </Card>
+
+        <div className="mb-6">
+          <h2 className="text-xl font-semibold text-foreground mb-4">Mental Health Check-ins</h2>
+          <div className="grid grid-cols-2 gap-3">
+            <Card
+              onClick={() => navigate("/questionnaire/anxiety")}
+              className="p-4 border-border/50 hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer"
+            >
+              <div className="flex flex-col items-center gap-2">
+                <Heart className="w-6 h-6 text-primary" />
+                <p className="text-sm font-medium text-foreground text-center">Anxiety Check-in</p>
+                <p className="text-xs text-muted-foreground text-center">GAD-7</p>
+              </div>
+            </Card>
+
+            <Card
+              onClick={() => navigate("/questionnaire/depression")}
+              className="p-4 border-border/50 hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer"
+            >
+              <div className="flex flex-col items-center gap-2">
+                <Brain className="w-6 h-6 text-secondary" />
+                <p className="text-sm font-medium text-foreground text-center">Depression Check-in</p>
+                <p className="text-xs text-muted-foreground text-center">BDI</p>
+              </div>
+            </Card>
+
+            <Card
+              onClick={() => navigate("/questionnaire/focus")}
+              className="p-4 border-border/50 hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer"
+            >
+              <div className="flex flex-col items-center gap-2">
+                <Activity className="w-6 h-6 text-accent" />
+                <p className="text-sm font-medium text-foreground text-center">Focus Check-in</p>
+                <p className="text-xs text-muted-foreground text-center">ASRS</p>
+              </div>
+            </Card>
+
+            <Card
+              onClick={() => navigate("/questionnaire/phone-habits")}
+              className="p-4 border-border/50 hover:shadow-[var(--shadow-soft)] transition-all cursor-pointer"
+            >
+              <div className="flex flex-col items-center gap-2">
+                <Smartphone className="w-6 h-6 text-foreground" />
+                <p className="text-sm font-medium text-foreground text-center">Phone Habits</p>
+                <p className="text-xs text-muted-foreground text-center">Usage Check-in</p>
+              </div>
+            </Card>
+          </div>
+        </div>
       </div>
 
       {/* Bottom Navigation */}
