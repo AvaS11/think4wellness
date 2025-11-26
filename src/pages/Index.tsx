@@ -4,19 +4,45 @@ import { Bell, Clock, Smartphone, Settings, TrendingUp, LogOut } from "lucide-re
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import MoodWheel from "@/components/MoodWheel";
+import PhoneDependenceBar from "@/components/PhoneDependenceBar";
+import MissingDataPrompts from "@/components/MissingDataPrompts";
 import { useAuth } from "@/hooks/useAuth";
 import BottomNav from "@/components/BottomNav";
+import { supabase } from "@/integrations/supabase/client";
 
 const Index = () => {
   const [userName] = useState("Alex");
   const { user, loading, signOut } = useAuth();
   const navigate = useNavigate();
+  const [preferences, setPreferences] = useState<any>(null);
 
   useEffect(() => {
     if (!loading && !user) {
       navigate("/");
     }
   }, [user, loading, navigate]);
+
+  useEffect(() => {
+    if (!user) return;
+
+    const fetchPreferences = async () => {
+      const { data } = await supabase
+        .from('user_preferences')
+        .select('*')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      setPreferences(data || {
+        mood_tracker_enabled: true,
+        focus_tracker_enabled: true,
+        anxiety_tracker_enabled: true,
+        depression_tracker_enabled: true,
+        phone_dependence_tracker_enabled: true
+      });
+    };
+
+    fetchPreferences();
+  }, [user]);
 
   if (loading) {
     return (
@@ -80,9 +106,32 @@ const Index = () => {
           </Link>
         </div>
 
-        <div className="mb-8">
+        <div className="mb-6">
           <MoodWheel />
         </div>
+
+        {user && preferences && (
+          <>
+            <div className="mb-6">
+              <PhoneDependenceBar 
+                userId={user.id} 
+                enabled={preferences.phone_dependence_tracker_enabled ?? true}
+              />
+            </div>
+
+            <div className="mb-8">
+              <MissingDataPrompts 
+                userId={user.id}
+                preferences={{
+                  mood_tracker_enabled: preferences.mood_tracker_enabled ?? true,
+                  focus_tracker_enabled: preferences.focus_tracker_enabled ?? true,
+                  anxiety_tracker_enabled: preferences.anxiety_tracker_enabled ?? true,
+                  depression_tracker_enabled: preferences.depression_tracker_enabled ?? true
+                }}
+              />
+            </div>
+          </>
+        )}
 
 
         {/* Your Work Section */}
