@@ -65,6 +65,42 @@ export type Database = {
         }
         Relationships: []
       }
+      user_preferences: {
+        Row: {
+          anxiety_tracker_enabled: boolean
+          created_at: string
+          depression_tracker_enabled: boolean
+          focus_tracker_enabled: boolean
+          id: string
+          language: string
+          mood_tracker_enabled: boolean
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          anxiety_tracker_enabled?: boolean
+          created_at?: string
+          depression_tracker_enabled?: boolean
+          focus_tracker_enabled?: boolean
+          id?: string
+          language?: string
+          mood_tracker_enabled?: boolean
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          anxiety_tracker_enabled?: boolean
+          created_at?: string
+          depression_tracker_enabled?: boolean
+          focus_tracker_enabled?: boolean
+          id?: string
+          language?: string
+          mood_tracker_enabled?: boolean
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
