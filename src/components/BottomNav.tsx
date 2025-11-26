@@ -1,4 +1,4 @@
-import { BookOpen, Heart, Clipboard } from "lucide-react";
+import { BookOpen, Heart, Clipboard, Home } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 
@@ -6,6 +6,7 @@ const BottomNav = () => {
   const location = useLocation();
   
   const navItems = [
+    { icon: Home, label: "Home", link: "/home" },
     { icon: BookOpen, label: "Learn", link: "/resources" },
     { icon: Heart, label: "Reflect", link: "/journal" },
     { icon: Clipboard, label: "Check-in", link: "/mood" },
@@ -13,7 +14,7 @@ const BottomNav = () => {
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-card border-t border-border px-6 py-4">
-      <div className="max-w-2xl mx-auto grid grid-cols-3 gap-3">
+      <div className="max-w-2xl mx-auto grid grid-cols-4 gap-3">
         {navItems.map((item, index) => {
           const Icon = item.icon;
           const isActive = location.pathname === item.link;
