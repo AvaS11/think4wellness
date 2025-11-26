@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -7,6 +7,7 @@ import { Label } from "@/components/ui/label";
 import { toast } from "sonner";
 import { ChevronLeft, Brain, Heart, Activity, Smartphone } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
+import { supabase } from "@/integrations/supabase/client";
 
 type QuestionnaireType = "anxiety" | "depression" | "focus" | "phone-habits";
 
@@ -345,6 +346,20 @@ const Questionnaire = () => {
   const { type } = useParams<{ type: string }>();
   const navigate = useNavigate();
   const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [userId, setUserId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        setUserId(user.id);
+      } else {
+        toast.error("Please log in to complete questionnaire");
+        navigate("/auth");
+      }
+    };
+    checkUser();
+  }, [navigate]);
 
   const questionnaireType = type as QuestionnaireType;
   const data = questionnaireData[questionnaireType];
@@ -360,15 +375,37 @@ const Questionnaire = () => {
     setAnswers(prev => ({ ...prev, [questionId]: value }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (Object.keys(answers).length !== data.questions.length) {
       toast.error("Please answer all questions");
       return;
     }
 
+    if (!userId) {
+      toast.error("Please log in to save results");
+      navigate("/auth");
+      return;
+    }
+
     const totalScore = Object.values(answers).reduce((sum, val) => sum + parseInt(val), 0);
-    toast.success(`Check-in completed! Score: ${totalScore}`);
-    navigate("/mood");
+
+    try {
+      const { error } = await supabase
+        .from('questionnaire_results')
+        .insert({
+          user_id: userId,
+          questionnaire_type: questionnaireType,
+          score: totalScore,
+          answers: answers
+        });
+
+      if (error) throw error;
+
+      toast.success(`Check-in completed! Score: ${totalScore}`);
+      navigate("/mood");
+    } catch (error: any) {
+      toast.error(error.message || "Failed to save results");
+    }
   };
 
   return (

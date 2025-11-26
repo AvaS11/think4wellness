@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Smile, Meh, Frown, Angry, Heart, Calendar, Brain, Activity, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -6,12 +6,26 @@ import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import BottomNav from "@/components/BottomNav";
+import { supabase } from "@/integrations/supabase/client";
 
 const Mood = () => {
   const navigate = useNavigate();
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
   const [note, setNote] = useState("");
-  const [userName] = useState("Alex");
+  const [userName, setUserName] = useState("Alex");
+  const [userId, setUserId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        setUserId(user.id);
+        const email = user.email?.split('@')[0] || "User";
+        setUserName(email.charAt(0).toUpperCase() + email.slice(1));
+      }
+    };
+    checkUser();
+  }, []);
 
   const moods = [
     { id: "great", icon: Smile, label: "Great", color: "text-secondary hover:bg-secondary/10" },
@@ -21,14 +35,35 @@ const Mood = () => {
     { id: "terrible", icon: Angry, label: "Difficult", color: "text-destructive hover:bg-destructive/10" },
   ];
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!selectedMood) {
       toast.error("Please select a mood");
       return;
     }
-    toast.success("Mood logged successfully!");
-    setSelectedMood(null);
-    setNote("");
+
+    if (!userId) {
+      toast.error("Please log in to save your mood");
+      navigate("/auth");
+      return;
+    }
+
+    try {
+      const { error } = await supabase
+        .from('mood_logs')
+        .insert({
+          user_id: userId,
+          mood: selectedMood,
+          note: note || null
+        });
+
+      if (error) throw error;
+
+      toast.success("Mood logged successfully!");
+      setSelectedMood(null);
+      setNote("");
+    } catch (error: any) {
+      toast.error(error.message || "Failed to log mood");
+    }
   };
 
   return (
