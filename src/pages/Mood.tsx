@@ -7,12 +7,14 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import BottomNav from "@/components/BottomNav";
 import { supabase } from "@/integrations/supabase/client";
+import { useTranslation } from "react-i18next";
 
 const Mood = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
   const [note, setNote] = useState("");
-  const [userName, setUserName] = useState("Alex");
+  const [userName, setUserName] = useState("User");
   const [userId, setUserId] = useState<string | null>(null);
 
   useEffect(() => {
@@ -71,9 +73,9 @@ const Mood = () => {
       <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-calm px-6 pt-12 pb-8 mb-6">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold text-foreground mb-2">
-            Hello {userName}!
+            {t('home.hello', { name: userName })}
           </h1>
-          <p className="text-lg text-muted-foreground">How are you feeling today?</p>
+          <p className="text-lg text-muted-foreground">{t('mood.title')}</p>
         </div>
       </div>
       
@@ -144,8 +146,8 @@ const Mood = () => {
             >
               <div className="flex flex-col items-center gap-2">
                 <Heart className="w-6 h-6 text-primary" />
-                <p className="text-sm font-medium text-foreground text-center">Anxiety Check-in</p>
-                <p className="text-xs text-muted-foreground text-center">GAD-7</p>
+                <p className="text-sm font-medium text-foreground text-center">{t('mood.anxietyQuestionnaire')}</p>
+                <p className="text-xs text-muted-foreground text-center">{t('mood.anxietyDescription')}</p>
               </div>
             </Card>
 
@@ -155,8 +157,8 @@ const Mood = () => {
             >
               <div className="flex flex-col items-center gap-2">
                 <Brain className="w-6 h-6 text-secondary" />
-                <p className="text-sm font-medium text-foreground text-center">Depression Check-in</p>
-                <p className="text-xs text-muted-foreground text-center">BDI</p>
+                <p className="text-sm font-medium text-foreground text-center">{t('mood.depressionQuestionnaire')}</p>
+                <p className="text-xs text-muted-foreground text-center">{t('mood.depressionDescription')}</p>
               </div>
             </Card>
 
@@ -166,8 +168,8 @@ const Mood = () => {
             >
               <div className="flex flex-col items-center gap-2">
                 <Activity className="w-6 h-6 text-accent" />
-                <p className="text-sm font-medium text-foreground text-center">Focus Check-in</p>
-                <p className="text-xs text-muted-foreground text-center">ASRS</p>
+                <p className="text-sm font-medium text-foreground text-center">{t('mood.focusQuestionnaire')}</p>
+                <p className="text-xs text-muted-foreground text-center">{t('mood.focusDescription')}</p>
               </div>
             </Card>
 
@@ -177,8 +179,8 @@ const Mood = () => {
             >
               <div className="flex flex-col items-center gap-2">
                 <Smartphone className="w-6 h-6 text-foreground" />
-                <p className="text-sm font-medium text-foreground text-center">Phone Habits</p>
-                <p className="text-xs text-muted-foreground text-center">Usage Check-in</p>
+                <p className="text-sm font-medium text-foreground text-center">{t('mood.phoneHabitsQuestionnaire')}</p>
+                <p className="text-xs text-muted-foreground text-center">{t('mood.phoneHabitsDescription')}</p>
               </div>
             </Card>
           </div>

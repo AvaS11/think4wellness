@@ -2,65 +2,68 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Brain, Heart, Lightbulb, Users, BookOpen, Phone } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
+import { useTranslation } from "react-i18next";
 
 const Resources = () => {
+  const { t } = useTranslation();
+
   const resourceCategories = [
     {
       icon: Brain,
-      title: "Understanding Mental Health",
-      description: "Learn about common mental health conditions and their symptoms",
+      title: t('resources.category1Title'),
+      description: t('resources.category1Description'),
       color: "text-primary",
       articles: [
-        "What is anxiety?",
-        "Recognizing depression",
-        "Managing stress effectively"
+        t('resources.category1Article1'),
+        t('resources.category1Article2'),
+        t('resources.category1Article3')
       ]
     },
     {
       icon: Heart,
-      title: "Self-Care Practices",
-      description: "Daily habits and techniques to support your wellbeing",
+      title: t('resources.category2Title'),
+      description: t('resources.category2Description'),
       color: "text-accent",
       articles: [
-        "Building a self-care routine",
-        "The importance of sleep",
-        "Mindful eating habits"
+        t('resources.category2Article1'),
+        t('resources.category2Article2'),
+        t('resources.category2Article3')
       ]
     },
     {
       icon: Lightbulb,
-      title: "Coping Strategies",
-      description: "Practical tools for managing difficult emotions",
+      title: t('resources.category3Title'),
+      description: t('resources.category3Description'),
       color: "text-secondary",
       articles: [
-        "Grounding techniques",
-        "Progressive muscle relaxation",
-        "Thought challenging exercises"
+        t('resources.category3Article1'),
+        t('resources.category3Article2'),
+        t('resources.category3Article3')
       ]
     },
     {
       icon: Users,
-      title: "Building Connections",
-      description: "The role of relationships in mental wellness",
+      title: t('resources.category4Title'),
+      description: t('resources.category4Description'),
       color: "text-primary",
       articles: [
-        "Communicating your needs",
-        "Setting healthy boundaries",
-        "Finding support groups"
+        t('resources.category4Article1'),
+        t('resources.category4Article2'),
+        t('resources.category4Article3')
       ]
     }
   ];
 
   const emergencyResources = [
     {
-      name: "National Suicide Prevention Lifeline",
-      number: "988",
-      description: "24/7 crisis support"
+      name: t('resources.emergencyLine1Name'),
+      number: t('resources.emergencyLine1Number'),
+      description: t('resources.emergencyLine1Description')
     },
     {
-      name: "Crisis Text Line",
-      number: "Text HOME to 741741",
-      description: "Free 24/7 text support"
+      name: t('resources.emergencyLine2Name'),
+      number: t('resources.emergencyLine2Number'),
+      description: t('resources.emergencyLine2Description')
     }
   ];
 
@@ -68,9 +71,9 @@ const Resources = () => {
     <div className="min-h-screen bg-background pb-20">
       <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-calm px-6 pt-12 pb-8 mb-6">
         <div className="max-w-2xl mx-auto">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Wellness Resources</h1>
+          <h1 className="text-3xl font-bold text-foreground mb-2">{t('resources.title')}</h1>
           <p className="text-lg text-muted-foreground">
-            Tools to support your mental health journey
+            {t('resources.subtitle')}
           </p>
         </div>
       </div>
@@ -82,7 +85,7 @@ const Resources = () => {
           <div className="flex items-start gap-4">
             <Phone className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
             <div className="flex-1">
-              <h2 className="text-xl font-semibold text-foreground mb-3">In Crisis?</h2>
+              <h2 className="text-xl font-semibold text-foreground mb-3">{t('resources.inCrisis')}</h2>
               <div className="space-y-3">
                 {emergencyResources.map((resource, index) => (
                   <div key={index} className="flex items-center justify-between">
@@ -138,12 +141,12 @@ const Resources = () => {
         <Card className="p-8 border-border/50 bg-wellness/30 mb-6">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-6 h-6 text-secondary" />
-            <h2 className="text-2xl font-semibold text-foreground">Further Reading</h2>
+            <h2 className="text-2xl font-semibold text-foreground">{t('resources.furtherReading')}</h2>
           </div>
           <p className="text-muted-foreground mb-6">
-            Explore recommended books, podcasts, and articles to deepen your understanding of mental wellness.
+            {t('resources.furtherReadingDescription')}
           </p>
-          <Button className="rounded-full">Browse Library</Button>
+          <Button className="rounded-full">{t('resources.browseLibrary')}</Button>
         </Card>
       </div>
 
