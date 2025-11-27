@@ -2,7 +2,7 @@
   "common": {
     "back": "वापस",
     "viewAll": "सभी देखें",
-    "checkIn": "चेक-इन",
+    "checkIn": "चेक इन",
     "loading": "लोड हो रहा है...",
     "save": "सहेजें",
     "cancel": "रद्द करें"
@@ -15,14 +15,14 @@
     "pickups": "फोन उठाना",
     "yourWork": "आपकी प्रगति",
     "dailyMoodTracking": "दैनिक मूड ट्रैकिंग",
-    "journalEntries": "डायरी प्रविष्टियां",
+    "journalEntries": "जर्नल प्रविष्टियाँ",
     "breathingExercises": "श्वास अभ्यास",
     "keepGoing": "जारी रखें! आप बहुत अच्छा कर रहे हैं",
-    "goalEntriesPerWeek": "लक्ष्य: प्रति सप्ताह 7 प्रविष्टियां",
+    "goalEntriesPerWeek": "लक्ष्य: प्रति सप्ताह 7 प्रविष्टियाँ",
     "goalExercisesPerWeek": "लक्ष्य: प्रति सप्ताह 10",
     "days": "दिन",
     "thisWeek": "इस सप्ताह",
-    "completed": "पूर्ण"
+    "completed": "पूरा हुआ"
   },
   "settings": {
     "title": "सेटिंग्स",
@@ -30,8 +30,8 @@
     "language": "भाषा",
     "languageDescription": "अपनी पसंदीदा भाषा चुनें",
     "selectLanguage": "भाषा चुनें",
-    "wellnessTrackers": "कल्याण ट्रैकर्स",
-    "wellnessTrackersDescription": "आपके लिए प्रासंगिक विशिष्ट ट्रैकर्स को सक्षम या अक्षम करें",
+    "wellnessTrackers": "वेलनेस ट्रैकर्स",
+    "wellnessTrackersDescription": "आपके लिए प्रासंगिक ट्रैकर्स को सक्षम या अक्षम करें",
     "moodTracker": "मूड ट्रैकर",
     "moodTrackerDescription": "अपने दैनिक मूड स्तर को ट्रैक करें",
     "focusTracker": "फोकस ट्रैकर",
@@ -45,10 +45,10 @@
     "settingsSaved": "सेटिंग्स सहेजी गईं",
     "failedToSave": "सेटिंग्स सहेजने में विफल",
     "loadingSettings": "सेटिंग्स लोड हो रही हैं...",
-    "pleaseLogin": "कृपया सेटिंग्स तक पहुंचने के लिए लॉगिन करें"
+    "pleaseLogin": "सेटिंग्स तक पहुंचने के लिए कृपया लॉगिन करें"
   },
   "moodWheel": {
-    "wellnessSnapshot": "कल्याण स्नैपशॉट",
+    "wellnessSnapshot": "वेलनेस स्नैपशॉट",
     "mood": "मूड",
     "focus": "फोकस",
     "anxiety": "चिंता",
@@ -71,7 +71,7 @@
   },
   "bottomNav": {
     "learn": "सीखें",
-    "reflect": "चिंतन करें",
+    "reflect": "विचार करें",
     "checkIn": "चेक-इन"
   },
   "auth": {
@@ -84,12 +84,12 @@
     "dontHaveAccount": "खाता नहीं है?",
     "alreadyHaveAccount": "पहले से खाता है?",
     "signInWithGoogle": "Google के साथ साइन इन करें",
-    "orContinueWith": "या जारी रखें"
+    "orContinueWith": "या इसके साथ जारी रखें"
   },
   "welcome": {
-    "title": "think. में आपका स्वागत है",
-    "subtitle": "आपका व्यक्तिगत कल्याण साथी",
-    "haveAccount": "हां, मेरे पास खाता है।",
+    "title": "think में आपका स्वागत है.",
+    "subtitle": "आपका व्यक्तिगत वेलनेस साथी",
+    "haveAccount": "हां, मेरा खाता है।",
     "newUser": "नहीं, मैं शुरू करने के लिए उत्साहित हूं!"
   },
   "mood": {
@@ -100,8 +100,8 @@
     "depressionDescription": "बेक अवसाद सूची",
     "focusQuestionnaire": "फोकस प्रश्नावली",
     "focusDescription": "वयस्क स्व-रिपोर्ट स्केल",
-    "phoneHabitsQuestionnaire": "फोन की आदतें",
-    "phoneHabitsDescription": "डिजिटल कल्याण जांच"
+    "phoneHabitsQuestionnaire": "फोन आदतें",
+    "phoneHabitsDescription": "डिजिटल वेलनेस चेक"
   },
   "analytics": {
     "title": "विश्लेषण",
@@ -110,5 +110,76 @@
     "pickups": "फोन उठाना",
     "daily": "दैनिक",
     "weekly": "साप्ताहिक"
+  },
+  "resources": {
+    "title": "वेलनेस संसाधन",
+    "subtitle": "आपकी मानसिक स्वास्थ्य यात्रा का समर्थन करने के उपकरण",
+    "inCrisis": "संकट में?",
+    "emergencyLine1Name": "राष्ट्रीय आत्महत्या रोकथाम हेल्पलाइन",
+    "emergencyLine1Number": "988",
+    "emergencyLine1Description": "24/7 संकट सहायता",
+    "emergencyLine2Name": "संकट टेक्स्ट लाइन",
+    "emergencyLine2Number": "HOME को 741741 पर टेक्स्ट करें",
+    "emergencyLine2Description": "मुफ्त 24/7 टेक्स्ट सहायता",
+    "category1Title": "मानसिक स्वास्थ्य को समझना",
+    "category1Description": "सामान्य मानसिक स्वास्थ्य स्थितियों और उनके लक्षणों के बारे में जानें",
+    "category1Article1": "चिंता क्या है?",
+    "category1Article2": "अवसाद को पहचानना",
+    "category1Article3": "तनाव को प्रभावी ढंग से प्रबंधित करना",
+    "category2Title": "स्व-देखभाल अभ्यास",
+    "category2Description": "आपकी भलाई का समर्थन करने के लिए दैनिक आदतें और तकनीकें",
+    "category2Article1": "स्व-देखभाल दिनचर्या बनाना",
+    "category2Article2": "नींद का महत्व",
+    "category2Article3": "सचेत भोजन की आदतें",
+    "category3Title": "सामना करने की रणनीतियां",
+    "category3Description": "कठिन भावनाओं को प्रबंधित करने के व्यावहारिक उपकरण",
+    "category3Article1": "ग्राउंडिंग तकनीकें",
+    "category3Article2": "प्रगतिशील मांसपेशी विश्राम",
+    "category3Article3": "विचार चुनौती अभ्यास",
+    "category4Title": "संबंध बनाना",
+    "category4Description": "मानसिक कल्याण में संबंधों की भूमिका",
+    "category4Article1": "अपनी जरूरतों को संप्रेषित करना",
+    "category4Article2": "स्वस्थ सीमाएं निर्धारित करना",
+    "category4Article3": "सहायता समूह ढूंढना",
+    "furtherReading": "अतिरिक्त पठन",
+    "furtherReadingDescription": "मानसिक कल्याण की अपनी समझ को गहरा करने के लिए अनुशंसित पुस्तकों, पॉडकास्ट और लेखों का अन्वेषण करें।",
+    "browseLibrary": "लाइब्रेरी ब्राउज़ करें"
+  },
+  "journal": {
+    "title": "नमस्ते {{name}}!",
+    "subtitle": "अपने विचारों और भावनाओं को व्यक्त करें",
+    "titleLabel": "शीर्षक (वैकल्पिक)",
+    "titlePlaceholder": "अपनी प्रविष्टि को एक शीर्षक दें...",
+    "entryLabel": "आपके विचार",
+    "entryPlaceholder": "अपने दिन, भावनाओं या अपने मन में जो कुछ भी है उसके बारे में स्वतंत्र रूप से लिखें...",
+    "saveEntry": "प्रविष्टि सहेजें",
+    "saveError": "सहेजने से पहले कृपया कुछ लिखें",
+    "saveSuccess": "जर्नल प्रविष्टि सहेजी गई!",
+    "yourEntries": "आपकी जर्नल प्रविष्टियाँ",
+    "entriesDescription": "आपकी जर्नल प्रविष्टियाँ यहां दिखाई देंगी। अपने संग्रह को बढ़ते हुए देखने के लिए लिखना शुरू करें।",
+    "viewAllEntries": "सभी प्रविष्टियां देखें"
+  },
+  "questionnaire": {
+    "back": "वापस",
+    "submitCheckin": "चेक-इन सबमिट करें",
+    "answerAllQuestions": "कृपया सभी प्रश्नों का उत्तर दें",
+    "loginToSave": "परिणाम सहेजने के लिए कृपया लॉगिन करें",
+    "checkinCompleted": "चेक-इन पूर्ण हुआ! स्कोर: {{score}}",
+    "saveFailed": "परिणाम सहेजने में विफल",
+    "timeframePrompt": "पिछले 2 सप्ताहों में, आप निम्नलिखित से कितनी बार परेशान हुए हैं?",
+    "anxietyTitle": "चिंता चेक-इन (GAD-7)",
+    "depressionTitle": "अवसाद चेक-इन (बेक अवसाद सूची)",
+    "focusTitle": "फोकस चेक-इन (वयस्क स्व-रिपोर्ट स्केल)",
+    "phoneHabitsTitle": "फोन आदतें चेक-इन",
+    "notAtAll": "बिल्कुल नहीं",
+    "severalDays": "कई दिन",
+    "moreThanHalf": "आधे से अधिक दिन",
+    "nearlyEveryDay": "लगभग हर दिन",
+    "never": "कभी नहीं",
+    "rarely": "शायद ही कभी",
+    "sometimes": "कभी-कभी",
+    "often": "अक्सर",
+    "veryOften": "बहुत अक्सर",
+    "always": "हमेशा"
   }
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -6,18 +6,32 @@ import { Input } from "@/components/ui/input";
 import { BookOpen, Save, Plus } from "lucide-react";
 import { toast } from "sonner";
 import BottomNav from "@/components/BottomNav";
+import { useTranslation } from "react-i18next";
+import { supabase } from "@/integrations/supabase/client";
 
 const Journal = () => {
+  const { t } = useTranslation();
   const [title, setTitle] = useState("");
   const [entry, setEntry] = useState("");
-  const [userName] = useState("Alex");
+  const [userName, setUserName] = useState("User");
+
+  useEffect(() => {
+    const checkUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      if (user) {
+        const email = user.email?.split('@')[0] || "User";
+        setUserName(email.charAt(0).toUpperCase() + email.slice(1));
+      }
+    };
+    checkUser();
+  }, []);
 
   const handleSave = () => {
     if (!entry.trim()) {
-      toast.error("Please write something before saving");
+      toast.error(t('journal.saveError'));
       return;
     }
-    toast.success("Journal entry saved!");
+    toast.success(t('journal.saveSuccess'));
     setTitle("");
     setEntry("");
   };
@@ -27,10 +41,10 @@ const Journal = () => {
       <div className="bg-gradient-to-br from-primary/10 via-secondary/10 to-calm px-6 pt-12 pb-8 mb-6">
         <div className="max-w-2xl mx-auto">
           <h1 className="text-3xl font-bold text-foreground mb-2">
-            Hello {userName}!
+            {t('journal.title', { name: userName })}
           </h1>
           <p className="text-lg text-muted-foreground">
-            Express your thoughts and feelings
+            {t('journal.subtitle')}
           </p>
         </div>
       </div>
@@ -41,11 +55,11 @@ const Journal = () => {
           <div className="space-y-6">
             <div>
               <label htmlFor="title" className="text-sm font-medium text-foreground mb-2 block">
-                Title (optional)
+                {t('journal.titleLabel')}
               </label>
               <Input
                 id="title"
-                placeholder="Give your entry a title..."
+                placeholder={t('journal.titlePlaceholder')}
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 className="text-lg"
@@ -54,11 +68,11 @@ const Journal = () => {
 
             <div>
               <label htmlFor="entry" className="text-sm font-medium text-foreground mb-2 block">
-                Your thoughts
+                {t('journal.entryLabel')}
               </label>
               <Textarea
                 id="entry"
-                placeholder="Write freely about your day, feelings, or anything on your mind..."
+                placeholder={t('journal.entryPlaceholder')}
                 value={entry}
                 onChange={(e) => setEntry(e.target.value)}
                 className="min-h-[300px] resize-none text-base leading-relaxed"
@@ -68,7 +82,7 @@ const Journal = () => {
             <div className="flex gap-3">
               <Button onClick={handleSave} size="lg" className="flex-1 rounded-full">
                 <Save className="w-5 h-5 mr-2" />
-                Save Entry
+                {t('journal.saveEntry')}
               </Button>
             </div>
           </div>
@@ -77,14 +91,14 @@ const Journal = () => {
         <Card className="p-6 border-border/50 mb-6">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-5 h-5 text-primary" />
-            <h2 className="text-xl font-semibold text-foreground">Your Journal Entries</h2>
+            <h2 className="text-xl font-semibold text-foreground">{t('journal.yourEntries')}</h2>
           </div>
           <p className="text-muted-foreground mb-4">
-            Your journal entries will appear here. Start writing to see your collection grow.
+            {t('journal.entriesDescription')}
           </p>
           <Button variant="outline" className="rounded-full">
             <Plus className="w-4 h-4 mr-2" />
-            View All Entries
+            {t('journal.viewAllEntries')}
           </Button>
         </Card>
       </div>

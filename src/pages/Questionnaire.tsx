@@ -8,6 +8,7 @@ import { toast } from "sonner";
 import { ChevronLeft, Brain, Heart, Activity, Smartphone } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 import { supabase } from "@/integrations/supabase/client";
+import { useTranslation } from "react-i18next";
 
 type QuestionnaireType = "anxiety" | "depression" | "focus" | "phone-habits";
 
@@ -343,6 +344,7 @@ const questionnaireData: Record<QuestionnaireType, { title: string; icon: any; c
 };
 
 const Questionnaire = () => {
+  const { t } = useTranslation();
   const { type } = useParams<{ type: string }>();
   const navigate = useNavigate();
   const [answers, setAnswers] = useState<Record<string, string>>({});
@@ -354,12 +356,12 @@ const Questionnaire = () => {
       if (user) {
         setUserId(user.id);
       } else {
-        toast.error("Please log in to complete questionnaire");
+        toast.error(t('questionnaire.loginToSave'));
         navigate("/auth");
       }
     };
     checkUser();
-  }, [navigate]);
+  }, [navigate, t]);
 
   const questionnaireType = type as QuestionnaireType;
   const data = questionnaireData[questionnaireType];
@@ -377,12 +379,12 @@ const Questionnaire = () => {
 
   const handleSubmit = async () => {
     if (Object.keys(answers).length !== data.questions.length) {
-      toast.error("Please answer all questions");
+      toast.error(t('questionnaire.answerAllQuestions'));
       return;
     }
 
     if (!userId) {
-      toast.error("Please log in to save results");
+      toast.error(t('questionnaire.loginToSave'));
       navigate("/auth");
       return;
     }
@@ -401,10 +403,10 @@ const Questionnaire = () => {
 
       if (error) throw error;
 
-      toast.success(`Check-in completed! Score: ${totalScore}`);
+      toast.success(t('questionnaire.checkinCompleted', { score: totalScore }));
       navigate("/mood");
     } catch (error: any) {
-      toast.error(error.message || "Failed to save results");
+      toast.error(error.message || t('questionnaire.saveFailed'));
     }
   };
 
@@ -419,14 +421,14 @@ const Questionnaire = () => {
             className="mb-4 -ml-2"
           >
             <ChevronLeft className="w-4 h-4 mr-1" />
-            Back
+            {t('questionnaire.back')}
           </Button>
           <div className="flex items-center gap-3 mb-2">
             <Icon className={`w-8 h-8 ${data.color}`} />
-            <h1 className="text-3xl font-bold text-foreground">{data.title}</h1>
+            <h1 className="text-3xl font-bold text-foreground">{t(`questionnaire.${questionnaireType}Title`)}</h1>
           </div>
           <p className="text-lg text-muted-foreground">
-            Over the last 2 weeks, how often have you been bothered by the following?
+            {t('questionnaire.timeframePrompt')}
           </p>
         </div>
       </div>
@@ -461,7 +463,7 @@ const Questionnaire = () => {
         </div>
 
         <Button onClick={handleSubmit} size="lg" className="w-full rounded-full mb-6">
-          Submit Check-in
+          {t('questionnaire.submitCheckin')}
         </Button>
       </div>
 
