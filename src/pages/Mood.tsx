@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Smile, Meh, Frown, Angry, Heart, Calendar, Brain, Activity, Smartphone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 const Mood = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const location = useLocation();
   const [selectedMood, setSelectedMood] = useState<string | null>(null);
   const [note, setNote] = useState("");
   const [userName, setUserName] = useState("User");
@@ -51,7 +52,7 @@ const Mood = () => {
       }
     };
     checkUser();
-  }, []);
+  }, [location.pathname]);
 
   const moods = [
     { id: "great", icon: Smile, labelKey: "mood.great", color: "text-secondary hover:bg-secondary/10" },
