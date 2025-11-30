@@ -11,10 +11,12 @@ import BottomNav from "@/components/BottomNav";
 import { supabase } from "@/integrations/supabase/client";
 import { useTranslation } from "react-i18next";
 import { useFontSize } from "@/hooks/useFontSize";
+import { useContrastMode } from "@/hooks/useContrastMode";
 
 interface UserPreferences {
   language: string;
   font_size: string;
+  contrast_mode: string;
   mood_tracker_enabled: boolean;
   focus_tracker_enabled: boolean;
   anxiety_tracker_enabled: boolean;
@@ -42,6 +44,7 @@ const Settings = () => {
   const [preferences, setPreferences] = useState<UserPreferences>({
     language: 'en',
     font_size: 'medium',
+    contrast_mode: 'normal',
     mood_tracker_enabled: true,
     focus_tracker_enabled: true,
     anxiety_tracker_enabled: true,
@@ -51,6 +54,7 @@ const Settings = () => {
   const [loading, setLoading] = useState(true);
 
   useFontSize(preferences.font_size);
+  useContrastMode(preferences.contrast_mode);
 
   useEffect(() => {
     const loadPreferences = async () => {
@@ -76,6 +80,7 @@ const Settings = () => {
           setPreferences({
             language: data.language,
             font_size: data.font_size,
+            contrast_mode: data.contrast_mode,
             mood_tracker_enabled: data.mood_tracker_enabled,
             focus_tracker_enabled: data.focus_tracker_enabled,
             anxiety_tracker_enabled: data.anxiety_tracker_enabled,
@@ -208,6 +213,28 @@ const Settings = () => {
                 <SelectItem value="medium">{t('settings.medium')}</SelectItem>
                 <SelectItem value="large">{t('settings.large')}</SelectItem>
                 <SelectItem value="extraLarge">{t('settings.extraLarge')}</SelectItem>
+              </SelectContent>
+            </Select>
+          </CardContent>
+        </Card>
+
+        <Card className="border-border/50">
+          <CardHeader>
+            <CardTitle>{t('settings.contrastMode')}</CardTitle>
+            <CardDescription>{t('settings.contrastModeDescription')}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Select
+              value={preferences.contrast_mode}
+              onValueChange={(value) => updatePreferences({ contrast_mode: value })}
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="normal">{t('settings.normal')}</SelectItem>
+                <SelectItem value="high">{t('settings.highContrast')}</SelectItem>
+                <SelectItem value="extraHigh">{t('settings.extraHighContrast')}</SelectItem>
               </SelectContent>
             </Select>
           </CardContent>

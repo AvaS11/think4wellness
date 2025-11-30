@@ -65,6 +65,38 @@ All colors MUST be HSL.
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
+  /* High contrast mode */
+  .contrast-high {
+    --background: 160 9% 38%;
+    --foreground: 0 0% 100%;
+    --card: 160 9% 68%;
+    --card-foreground: 0 0% 0%;
+    --muted: 160 9% 30%;
+    --muted-foreground: 0 0% 98%;
+    --border: 160 10% 25%;
+    --primary: 157 35% 45%;
+    --secondary: 152 65% 70%;
+  }
+
+  .contrast-extra-high {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 157 50% 60%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 152 70% 80%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 100%;
+    --accent: 152 70% 80%;
+    --accent-foreground: 0 0% 0%;
+    --border: 0 0% 30%;
+    --input: 0 0% 20%;
+  }
+
   .dark {
     --background: 297 13% 12%;
     --foreground: 0 0% 98%;
