@@ -9,7 +9,7 @@ const BottomNav = () => {
   const navItems = [
     { to: "/resources", icon: BookOpen, label: t('bottomNav.learn'), isCenter: false },
     { to: "/journal", icon: Heart, label: t('bottomNav.reflect'), isCenter: false },
-    { to: "/home", icon: Home, label: "", isCenter: true },
+    { to: "/home", icon: Home, label: t('bottomNav.home'), isCenter: true },
     { to: "/mood", icon: Menu, label: t('bottomNav.checkIn'), isCenter: false },
   ];
   
