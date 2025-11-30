@@ -12,7 +12,7 @@ const Resources = () => {
       icon: Brain,
       title: t('resources.category1Title'),
       description: t('resources.category1Description'),
-      color: "text-primary",
+      color: "text-foreground",
       articles: [
         { text: t('resources.category1Article1'), url: "https://www.who.int/news-room/fact-sheets/detail/anxiety-disorders" },
         { text: t('resources.category1Article2'), url: "https://www.who.int/news-room/fact-sheets/detail/depression" },
@@ -23,7 +23,7 @@ const Resources = () => {
       icon: Heart,
       title: t('resources.category2Title'),
       description: t('resources.category2Description'),
-      color: "text-accent",
+      color: "text-foreground",
       articles: [
         { text: t('resources.category2Article1'), url: "https://www.who.int/health-topics/self-care#tab=tab_1" },
         { text: t('resources.category2Article2'), url: "https://www.cdc.gov/sleep/about/index.html" },
@@ -34,7 +34,7 @@ const Resources = () => {
       icon: Lightbulb,
       title: t('resources.category3Title'),
       description: t('resources.category3Description'),
-      color: "text-secondary",
+      color: "text-foreground",
       articles: [
         { text: t('resources.category3Article1'), url: "https://health.clevelandclinic.org/grounding-techniques" },
         { text: t('resources.category3Article2'), url: "https://www.ncbi.nlm.nih.gov/books/NBK513238/" },
@@ -45,7 +45,7 @@ const Resources = () => {
       icon: Users,
       title: t('resources.category4Title'),
       description: t('resources.category4Description'),
-      color: "text-primary",
+      color: "text-foreground",
       articles: [
         { text: t('resources.category4Article1'), url: "https://www.who.int/about/communications/principles" },
         { text: t('resources.category4Article2'), url: "https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/setting-boundaries-for-well-being" },
