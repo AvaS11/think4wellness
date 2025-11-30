@@ -24,6 +24,10 @@ interface UserPreferences {
   phone_dependence_tracker_enabled: boolean;
 }
 
+interface UserProfile {
+  display_name: string;
+}
+
 const languages = [
   { code: 'en', name: 'English' },
   { code: 'zh', name: '中文 (Chinese)' },
@@ -51,6 +55,9 @@ const Settings = () => {
     depression_tracker_enabled: true,
     phone_dependence_tracker_enabled: true
   });
+  const [profile, setProfile] = useState<UserProfile>({
+    display_name: ''
+  });
   const [loading, setLoading] = useState(true);
 
   useFontSize(preferences.font_size);
@@ -68,29 +75,45 @@ const Settings = () => {
       setUserId(user.id);
 
       try {
-        const { data, error } = await supabase
+        // Load preferences
+        const { data: prefsData, error: prefsError } = await supabase
           .from('user_preferences')
           .select('*')
           .eq('user_id', user.id)
           .maybeSingle();
 
-        if (error) throw error;
+        if (prefsError) throw prefsError;
 
-        if (data) {
+        if (prefsData) {
           setPreferences({
-            language: data.language,
-            font_size: data.font_size,
-            contrast_mode: data.contrast_mode,
-            mood_tracker_enabled: data.mood_tracker_enabled,
-            focus_tracker_enabled: data.focus_tracker_enabled,
-            anxiety_tracker_enabled: data.anxiety_tracker_enabled,
-            depression_tracker_enabled: data.depression_tracker_enabled,
-            phone_dependence_tracker_enabled: data.phone_dependence_tracker_enabled
+            language: prefsData.language,
+            font_size: prefsData.font_size,
+            contrast_mode: prefsData.contrast_mode,
+            mood_tracker_enabled: prefsData.mood_tracker_enabled,
+            focus_tracker_enabled: prefsData.focus_tracker_enabled,
+            anxiety_tracker_enabled: prefsData.anxiety_tracker_enabled,
+            depression_tracker_enabled: prefsData.depression_tracker_enabled,
+            phone_dependence_tracker_enabled: prefsData.phone_dependence_tracker_enabled
           });
-          i18n.changeLanguage(data.language);
+          i18n.changeLanguage(prefsData.language);
+        }
+
+        // Load profile
+        const { data: profileData, error: profileError } = await supabase
+          .from('profiles')
+          .select('display_name')
+          .eq('user_id', user.id)
+          .maybeSingle();
+
+        if (profileError) throw profileError;
+
+        if (profileData) {
+          setProfile({
+            display_name: profileData.display_name || ''
+          });
         }
       } catch (error: any) {
-        console.error('Error loading preferences:', error);
+        console.error('Error loading settings:', error);
       } finally {
         setLoading(false);
       }
@@ -98,6 +121,27 @@ const Settings = () => {
 
     loadPreferences();
   }, [navigate]);
+
+  const updateProfile = async (updates: Partial<UserProfile>) => {
+    if (!userId) return;
+
+    const newProfile = { ...profile, ...updates };
+    setProfile(newProfile);
+
+    try {
+      const { error } = await supabase
+        .from('profiles')
+        .update({ display_name: newProfile.display_name })
+        .eq('user_id', userId);
+
+      if (error) throw error;
+
+      toast.success(t('settings.settingsSaved'));
+    } catch (error: any) {
+      toast.error(error.message || t('settings.failedToSave'));
+      console.error('Error updating profile:', error);
+    }
+  };
 
   const updatePreferences = async (updates: Partial<UserPreferences>) => {
     if (!userId) return;
@@ -171,6 +215,23 @@ const Settings = () => {
       </div>
 
       <div className="container mx-auto max-w-2xl px-6 space-y-6">
+        <Card className="border-border/50">
+          <CardHeader>
+            <CardTitle>{t('settings.displayName')}</CardTitle>
+            <CardDescription>{t('settings.displayNameDescription')}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <input
+              type="text"
+              value={profile.display_name}
+              onChange={(e) => setProfile({ display_name: e.target.value })}
+              onBlur={() => updateProfile({ display_name: profile.display_name })}
+              className="w-full px-4 py-2 rounded-lg border border-input bg-background text-foreground"
+              placeholder={t('settings.enterYourName')}
+            />
+          </CardContent>
+        </Card>
+
         <Card className="border-border/50">
           <CardHeader>
             <CardTitle>{t('settings.language')}</CardTitle>

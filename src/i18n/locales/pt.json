@@ -27,6 +27,9 @@
   "settings": {
     "title": "Configurações",
     "subtitle": "Personalize sua experiência",
+    "displayName": "Nome de exibição",
+    "displayNameDescription": "Personalize como seu nome aparece no aplicativo",
+    "enterYourName": "Digite seu nome",
     "language": "Idioma",
     "languageDescription": "Escolha seu idioma preferido",
     "selectLanguage": "Selecionar idioma",

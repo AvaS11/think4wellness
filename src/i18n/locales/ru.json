@@ -27,6 +27,9 @@
   "settings": {
     "title": "Настройки",
     "subtitle": "Настройте свой опыт",
+    "displayName": "Отображаемое имя",
+    "displayNameDescription": "Настройте, как ваше имя отображается в приложении",
+    "enterYourName": "Введите ваше имя",
     "language": "Язык",
     "languageDescription": "Выберите предпочитаемый язык",
     "selectLanguage": "Выбрать язык",
