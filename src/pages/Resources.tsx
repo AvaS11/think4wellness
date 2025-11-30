@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Brain, Heart, Lightbulb, Users, BookOpen, Phone } from "lucide-react";
+import { Brain, Heart, Lightbulb, Users, BookOpen, Phone, ExternalLink } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 import { useTranslation } from "react-i18next";
 
@@ -13,11 +13,10 @@ const Resources = () => {
       title: t('resources.category1Title'),
       description: t('resources.category1Description'),
       color: "text-primary",
-      whoLink: "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
       articles: [
-        t('resources.category1Article1'),
-        t('resources.category1Article2'),
-        t('resources.category1Article3')
+        { text: t('resources.category1Article1'), url: "https://www.who.int/news-room/fact-sheets/detail/mental-disorders" },
+        { text: t('resources.category1Article2'), url: "https://www.mentalhealth.org.uk/explore-mental-health/a-z-topics" },
+        { text: t('resources.category1Article3'), url: "https://www.nimh.nih.gov/health/topics" }
       ]
     },
     {
@@ -25,11 +24,10 @@ const Resources = () => {
       title: t('resources.category2Title'),
       description: t('resources.category2Description'),
       color: "text-accent",
-      whoLink: "https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response",
       articles: [
-        t('resources.category2Article1'),
-        t('resources.category2Article2'),
-        t('resources.category2Article3')
+        { text: t('resources.category2Article1'), url: "https://www.mind.org.uk/information-support/tips-for-everyday-living/wellbeing/" },
+        { text: t('resources.category2Article2'), url: "https://www.mentalhealth.org.uk/explore-mental-health/articles/how-look-after-your-mental-health-using-exercise" },
+        { text: t('resources.category2Article3'), url: "https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" }
       ]
     },
     {
@@ -37,11 +35,10 @@ const Resources = () => {
       title: t('resources.category3Title'),
       description: t('resources.category3Description'),
       color: "text-secondary",
-      whoLink: "https://www.who.int/health-topics/mental-health",
       articles: [
-        t('resources.category3Article1'),
-        t('resources.category3Article2'),
-        t('resources.category3Article3')
+        { text: t('resources.category3Article1'), url: "https://www.apa.org/topics/stress/manage" },
+        { text: t('resources.category3Article2'), url: "https://www.mind.org.uk/information-support/types-of-mental-health-problems/anxiety-and-panic-attacks/self-care/" },
+        { text: t('resources.category3Article3'), url: "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/" }
       ]
     },
     {
@@ -49,11 +46,10 @@ const Resources = () => {
       title: t('resources.category4Title'),
       description: t('resources.category4Description'),
       color: "text-primary",
-      whoLink: "https://www.who.int/campaigns/world-mental-health-day",
       articles: [
-        t('resources.category4Article1'),
-        t('resources.category4Article2'),
-        t('resources.category4Article3')
+        { text: t('resources.category4Article1'), url: "https://www.mentalhealth.org.uk/explore-mental-health/articles/importance-community-and-mental-health" },
+        { text: t('resources.category4Article2'), url: "https://www.mind.org.uk/information-support/tips-for-everyday-living/loneliness/" },
+        { text: t('resources.category4Article3'), url: "https://www.who.int/campaigns/world-mental-health-day" }
       ]
     }
   ];
@@ -118,14 +114,9 @@ const Resources = () => {
                     <Icon className={`w-6 h-6 ${category.color}`} />
                   </div>
                   <div className="flex-1">
-                    <a 
-                      href={category.whoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xl font-semibold text-foreground mb-2 hover:text-primary transition-colors inline-block"
-                    >
+                    <h3 className="text-xl font-semibold text-foreground mb-2">
                       {category.title}
-                    </a>
+                    </h3>
                     <p className="text-muted-foreground text-sm">
                       {category.description}
                     </p>
@@ -133,12 +124,16 @@ const Resources = () => {
                 </div>
                 <div className="space-y-2 pl-16">
                   {category.articles.map((article, articleIndex) => (
-                    <button
+                    <a
                       key={articleIndex}
-                      className="block w-full text-left px-4 py-2 rounded-lg hover:bg-calm transition-colors text-sm text-foreground"
+                      href={article.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between w-full text-left px-4 py-2 rounded-lg hover:bg-calm transition-colors text-sm text-foreground group"
                     >
-                      {article}
-                    </button>
+                      <span>{article.text}</span>
+                      <ExternalLink className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity text-muted-foreground" />
+                    </a>
                   ))}
                 </div>
               </Card>
