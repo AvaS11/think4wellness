@@ -141,29 +141,6 @@ const Resources = () => {
           })}
         </div>
 
-        {/* Additional Resources */}
-        <Card className="p-8 border-border/50 bg-wellness/30 mb-6">
-          <div className="flex items-center gap-3 mb-4">
-            <BookOpen className="w-6 h-6 text-secondary" />
-            <a 
-              href="https://www.who.int/health-topics/mental-health"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-2xl font-semibold text-foreground hover:text-primary transition-colors"
-            >
-              {t('resources.furtherReading')}
-            </a>
-          </div>
-          <p className="text-muted-foreground mb-6">
-            {t('resources.furtherReadingDescription')}
-          </p>
-          <Button 
-            onClick={() => window.open('https://www.who.int/health-topics/mental-health', '_blank')}
-            className="rounded-full"
-          >
-            {t('resources.browseLibrary')}
-          </Button>
-        </Card>
       </div>
 
       {/* Bottom Navigation */}
