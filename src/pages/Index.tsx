@@ -12,7 +12,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { useTranslation } from "react-i18next";
 
 const Index = () => {
-  const [userName] = useState("Alex");
+  const [userName, setUserName] = useState("User");
   const { user, loading, signOut } = useAuth();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
@@ -27,14 +27,15 @@ const Index = () => {
   useEffect(() => {
     if (!user) return;
 
-    const fetchPreferences = async () => {
-      const { data } = await supabase
+    const fetchUserData = async () => {
+      // Fetch preferences
+      const { data: prefsData } = await supabase
         .from('user_preferences')
         .select('*')
         .eq('user_id', user.id)
         .maybeSingle();
 
-      const prefs = data || {
+      const prefs = prefsData || {
         language: 'en',
         mood_tracker_enabled: true,
         focus_tracker_enabled: true,
@@ -44,12 +45,27 @@ const Index = () => {
       };
       
       setPreferences(prefs);
-      if (data?.language) {
-        i18n.changeLanguage(data.language);
+      if (prefsData?.language) {
+        i18n.changeLanguage(prefsData.language);
+      }
+
+      // Fetch display name from profiles
+      const { data: profileData } = await supabase
+        .from('profiles')
+        .select('display_name')
+        .eq('user_id', user.id)
+        .maybeSingle();
+
+      if (profileData?.display_name) {
+        setUserName(profileData.display_name);
+      } else {
+        // Fallback to email username
+        const emailUsername = user.email?.split('@')[0] || 'User';
+        setUserName(emailUsername);
       }
     };
 
-    fetchPreferences();
+    fetchUserData();
   }, [user, i18n]);
 
   if (loading) {
