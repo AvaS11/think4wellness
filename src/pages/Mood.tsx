@@ -22,29 +22,37 @@ const Mood = () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
         setUserId(user.id);
-        const email = user.email?.split('@')[0] || "User";
-        setUserName(email.charAt(0).toUpperCase() + email.slice(1));
+        // Try to get display name from user metadata, fall back to email username
+        const displayName = user.user_metadata?.full_name || user.user_metadata?.name;
+        if (displayName) {
+          setUserName(displayName);
+        } else {
+          const email = user.email?.split('@')[0];
+          if (email) {
+            setUserName(email.charAt(0).toUpperCase() + email.slice(1));
+          }
+        }
       }
     };
     checkUser();
   }, []);
 
   const moods = [
-    { id: "great", icon: Smile, label: "Great", color: "text-secondary hover:bg-secondary/10" },
-    { id: "good", icon: Heart, label: "Good", color: "text-primary hover:bg-primary/10" },
-    { id: "okay", icon: Meh, label: "Okay", color: "text-muted-foreground hover:bg-muted" },
-    { id: "bad", icon: Frown, label: "Not Great", color: "text-accent hover:bg-accent/10" },
-    { id: "terrible", icon: Angry, label: "Difficult", color: "text-destructive hover:bg-destructive/10" },
+    { id: "great", icon: Smile, labelKey: "mood.great", color: "text-secondary hover:bg-secondary/10" },
+    { id: "good", icon: Heart, labelKey: "mood.good", color: "text-primary hover:bg-primary/10" },
+    { id: "okay", icon: Meh, labelKey: "mood.okay", color: "text-muted-foreground hover:bg-muted" },
+    { id: "bad", icon: Frown, labelKey: "mood.notGreat", color: "text-accent hover:bg-accent/10" },
+    { id: "terrible", icon: Angry, labelKey: "mood.difficult", color: "text-destructive hover:bg-destructive/10" },
   ];
 
   const handleSubmit = async () => {
     if (!selectedMood) {
-      toast.error("Please select a mood");
+      toast.error(t('mood.selectMood'));
       return;
     }
 
     if (!userId) {
-      toast.error("Please log in to save your mood");
+      toast.error(t('mood.loginToSaveMood'));
       navigate("/auth");
       return;
     }
@@ -60,11 +68,11 @@ const Mood = () => {
 
       if (error) throw error;
 
-      toast.success("Mood logged successfully!");
+      toast.success(t('mood.moodLoggedSuccess'));
       setSelectedMood(null);
       setNote("");
     } catch (error: any) {
-      toast.error(error.message || "Failed to log mood");
+      toast.error(error.message || t('mood.failedToLogMood'));
     }
   };
 
@@ -85,7 +93,7 @@ const Mood = () => {
           <div className="space-y-8">
             <div>
               <label className="text-sm font-medium text-foreground mb-4 block">
-                Select your mood
+                {t('mood.selectYourMood')}
               </label>
               <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
                 {moods.map((mood) => {
@@ -101,7 +109,7 @@ const Mood = () => {
                       }`}
                     >
                       <Icon className={`w-12 h-12 mx-auto mb-2 ${mood.color}`} />
-                      <p className="text-sm font-medium text-foreground">{mood.label}</p>
+                      <p className="text-sm font-medium text-foreground">{t(mood.labelKey)}</p>
                     </button>
                   );
                 })}
@@ -110,11 +118,11 @@ const Mood = () => {
 
             <div>
               <label htmlFor="note" className="text-sm font-medium text-foreground mb-2 block">
-                Add a note (optional)
+                {t('mood.addNote')}
               </label>
               <Textarea
                 id="note"
-                placeholder="What's on your mind today?"
+                placeholder={t('mood.whatsOnYourMind')}
                 value={note}
                 onChange={(e) => setNote(e.target.value)}
                 className="min-h-[120px] resize-none"
@@ -122,7 +130,7 @@ const Mood = () => {
             </div>
 
             <Button onClick={handleSubmit} size="lg" className="w-full rounded-full">
-              Log Mood
+              {t('mood.logMood')}
             </Button>
           </div>
         </Card>
@@ -130,15 +138,15 @@ const Mood = () => {
         <Card className="p-6 border-border/50 mb-6">
           <div className="flex items-center gap-3 mb-4">
             <Calendar className="w-5 h-5 text-primary" />
-            <h2 className="text-xl font-semibold text-foreground">Your Mood History</h2>
+            <h2 className="text-xl font-semibold text-foreground">{t('mood.yourMoodHistory')}</h2>
           </div>
           <p className="text-muted-foreground">
-            Start logging your moods to see patterns and insights over time.
+            {t('mood.startLogging')}
           </p>
         </Card>
 
         <div className="mb-6">
-          <h2 className="text-xl font-semibold text-foreground mb-4">Mental Health Check-ins</h2>
+          <h2 className="text-xl font-semibold text-foreground mb-4">{t('mood.mentalHealthCheckins')}</h2>
           <div className="grid grid-cols-2 gap-3">
             <Card
               onClick={() => navigate("/questionnaire/anxiety")}
