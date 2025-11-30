@@ -47,7 +47,7 @@ const MissingDataPrompts = ({ userId, preferences }: MissingDataPromptsProps) =>
           missing.push({
             name: t('moodWheel.mood'),
             icon: <Heart className="w-4 h-4" />,
-            type: "mood_logs"
+            type: "Mood"
           });
         }
       }
@@ -67,7 +67,7 @@ const MissingDataPrompts = ({ userId, preferences }: MissingDataPromptsProps) =>
           missing.push({
             name: t('moodWheel.anxiety'),
             icon: <AlertCircle className="w-4 h-4" />,
-            type: "anxiety"
+            type: "Anxiety"
           });
         }
       }
@@ -87,7 +87,7 @@ const MissingDataPrompts = ({ userId, preferences }: MissingDataPromptsProps) =>
           missing.push({
             name: t('moodWheel.depression'),
             icon: <Brain className="w-4 h-4" />,
-            type: "depression"
+            type: "Depression"
           });
         }
       }
@@ -107,7 +107,7 @@ const MissingDataPrompts = ({ userId, preferences }: MissingDataPromptsProps) =>
           missing.push({
             name: t('moodWheel.focus'),
             icon: <Focus className="w-4 h-4" />,
-            type: "focus"
+            type: "Focus"
           });
         }
       }
@@ -128,7 +128,7 @@ const MissingDataPrompts = ({ userId, preferences }: MissingDataPromptsProps) =>
           <div key={tracker.type} className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               {tracker.icon}
-              <span>{t(`missingData.noRecent${tracker.name}`)}</span>
+              <span>{t(`missingData.noRecent${tracker.type}`)}</span>
             </div>
             <Link to="/mood">
               <Button size="sm" variant="ghost">
