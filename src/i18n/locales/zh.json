@@ -27,6 +27,9 @@
   "settings": {
     "title": "设置",
     "subtitle": "自定义你的体验",
+    "displayName": "显示名称",
+    "displayNameDescription": "自定义您在应用中的名称显示方式",
+    "enterYourName": "输入您的名字",
     "language": "语言",
     "languageDescription": "选择你的首选语言",
     "selectLanguage": "选择语言",

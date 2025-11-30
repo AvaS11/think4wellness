@@ -27,6 +27,9 @@
   "settings": {
     "title": "সেটিংস",
     "subtitle": "আপনার অভিজ্ঞতা কাস্টমাইজ করুন",
+    "displayName": "প্রদর্শন নাম",
+    "displayNameDescription": "অ্যাপে আপনার নাম কীভাবে প্রদর্শিত হবে তা কাস্টমাইজ করুন",
+    "enterYourName": "আপনার নাম লিখুন",
     "language": "ভাষা",
     "languageDescription": "আপনার পছন্দের ভাষা বেছে নিন",
     "selectLanguage": "ভাষা নির্বাচন করুন",

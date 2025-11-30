@@ -22,11 +22,27 @@ const Mood = () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
         setUserId(user.id);
-        // Try to get display name from user metadata, fall back to email username
-        const displayName = user.user_metadata?.full_name || user.user_metadata?.name;
-        if (displayName) {
-          setUserName(displayName);
-        } else {
+        
+        // Try to get display name from profiles table
+        try {
+          const { data: profileData } = await supabase
+            .from('profiles')
+            .select('display_name')
+            .eq('user_id', user.id)
+            .maybeSingle();
+
+          if (profileData?.display_name) {
+            setUserName(profileData.display_name);
+          } else {
+            // Fallback to email username
+            const email = user.email?.split('@')[0];
+            if (email) {
+              setUserName(email.charAt(0).toUpperCase() + email.slice(1));
+            }
+          }
+        } catch (error) {
+          console.error('Error fetching profile:', error);
+          // Fallback to email username
           const email = user.email?.split('@')[0];
           if (email) {
             setUserName(email.charAt(0).toUpperCase() + email.slice(1));

@@ -27,6 +27,9 @@
   "settings": {
     "title": "設定",
     "subtitle": "体験をカスタマイズ",
+    "displayName": "表示名",
+    "displayNameDescription": "アプリでの名前の表示方法をカスタマイズ",
+    "enterYourName": "名前を入力",
     "language": "言語",
     "languageDescription": "お好みの言語を選択してください",
     "selectLanguage": "言語を選択",

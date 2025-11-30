@@ -27,6 +27,9 @@
   "settings": {
     "title": "Settings",
     "subtitle": "Customize your experience",
+    "displayName": "Display Name",
+    "displayNameDescription": "Customize how your name appears in the app",
+    "enterYourName": "Enter your name",
     "language": "Language",
     "languageDescription": "Choose your preferred language",
     "selectLanguage": "Select language",

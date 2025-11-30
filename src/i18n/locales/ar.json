@@ -27,6 +27,9 @@
   "settings": {
     "title": "الإعدادات",
     "subtitle": "تخصيص تجربتك",
+    "displayName": "اسم العرض",
+    "displayNameDescription": "تخصيص كيفية ظهور اسمك في التطبيق",
+    "enterYourName": "أدخل اسمك",
     "language": "اللغة",
     "languageDescription": "اختر لغتك المفضلة",
     "selectLanguage": "اختر اللغة",
