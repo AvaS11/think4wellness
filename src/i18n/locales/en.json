@@ -30,6 +30,12 @@
     "language": "Language",
     "languageDescription": "Choose your preferred language",
     "selectLanguage": "Select language",
+    "fontSize": "Font Size",
+    "fontSizeDescription": "Adjust text size for better readability",
+    "small": "Small",
+    "medium": "Medium",
+    "large": "Large",
+    "extraLarge": "Extra Large",
     "wellnessTrackers": "Wellness Trackers",
     "wellnessTrackersDescription": "Enable or disable specific trackers based on what's relevant to you",
     "moodTracker": "Mood Tracker",
@@ -72,6 +78,7 @@
   "bottomNav": {
     "learn": "Learn",
     "reflect": "Reflect",
+    "home": "Home",
     "checkIn": "Check-in"
   },
   "auth": {
