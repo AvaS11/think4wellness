@@ -13,6 +13,7 @@ const Resources = () => {
       title: t('resources.category1Title'),
       description: t('resources.category1Description'),
       color: "text-primary",
+      whoLink: "https://www.who.int/news-room/fact-sheets/detail/mental-disorders",
       articles: [
         t('resources.category1Article1'),
         t('resources.category1Article2'),
@@ -24,6 +25,7 @@ const Resources = () => {
       title: t('resources.category2Title'),
       description: t('resources.category2Description'),
       color: "text-accent",
+      whoLink: "https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response",
       articles: [
         t('resources.category2Article1'),
         t('resources.category2Article2'),
@@ -35,6 +37,7 @@ const Resources = () => {
       title: t('resources.category3Title'),
       description: t('resources.category3Description'),
       color: "text-secondary",
+      whoLink: "https://www.who.int/health-topics/mental-health",
       articles: [
         t('resources.category3Article1'),
         t('resources.category3Article2'),
@@ -46,6 +49,7 @@ const Resources = () => {
       title: t('resources.category4Title'),
       description: t('resources.category4Description'),
       color: "text-primary",
+      whoLink: "https://www.who.int/campaigns/world-mental-health-day",
       articles: [
         t('resources.category4Article1'),
         t('resources.category4Article2'),
@@ -88,12 +92,12 @@ const Resources = () => {
               <h2 className="text-xl font-semibold text-foreground mb-3">{t('resources.inCrisis')}</h2>
               <div className="space-y-3">
                 {emergencyResources.map((resource, index) => (
-                  <div key={index} className="flex items-center justify-between">
-                    <div>
+                  <div key={index} className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <div className="flex-1">
                       <p className="font-medium text-foreground">{resource.name}</p>
                       <p className="text-sm text-muted-foreground">{resource.description}</p>
                     </div>
-                    <Button variant="outline" className="rounded-full">
+                    <Button variant="outline" className="rounded-full shrink-0 w-fit">
                       {resource.number}
                     </Button>
                   </div>
@@ -114,9 +118,14 @@ const Resources = () => {
                     <Icon className={`w-6 h-6 ${category.color}`} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-foreground mb-2">
+                    <a 
+                      href={category.whoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xl font-semibold text-foreground mb-2 hover:text-primary transition-colors inline-block"
+                    >
                       {category.title}
-                    </h3>
+                    </a>
                     <p className="text-muted-foreground text-sm">
                       {category.description}
                     </p>
@@ -141,12 +150,24 @@ const Resources = () => {
         <Card className="p-8 border-border/50 bg-wellness/30 mb-6">
           <div className="flex items-center gap-3 mb-4">
             <BookOpen className="w-6 h-6 text-secondary" />
-            <h2 className="text-2xl font-semibold text-foreground">{t('resources.furtherReading')}</h2>
+            <a 
+              href="https://www.who.int/health-topics/mental-health"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-2xl font-semibold text-foreground hover:text-primary transition-colors"
+            >
+              {t('resources.furtherReading')}
+            </a>
           </div>
           <p className="text-muted-foreground mb-6">
             {t('resources.furtherReadingDescription')}
           </p>
-          <Button className="rounded-full">{t('resources.browseLibrary')}</Button>
+          <Button 
+            onClick={() => window.open('https://www.who.int/health-topics/mental-health', '_blank')}
+            className="rounded-full"
+          >
+            {t('resources.browseLibrary')}
+          </Button>
         </Card>
       </div>
 
