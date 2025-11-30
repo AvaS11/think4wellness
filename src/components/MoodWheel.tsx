@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { supabase } from "@/integrations/supabase/client";
+import { useTranslation } from "react-i18next";
 
 interface MoodData {
   mood: number;
@@ -10,6 +11,7 @@ interface MoodData {
 }
 
 const MoodWheel = () => {
+  const { t } = useTranslation();
   const [data, setData] = useState<MoodData>({
     mood: 50,
     focus: 50,
@@ -133,19 +135,18 @@ const MoodWheel = () => {
   }, []);
 
   const metrics = [
-    { label: "Mood", value: data.mood, color: "stroke-primary", size: 280 },
-    { label: "Focus", value: data.focus, color: "stroke-secondary", size: 220 },
-    { label: "Anxiety", value: data.anxiety, color: "stroke-accent", size: 160 },
-    { label: "Depression", value: data.depression, color: "stroke-wellness", size: 100 },
+    { label: t('moodWheel.mood'), value: data.mood, color: "stroke-primary", size: 280, key: 'mood' },
+    { label: t('moodWheel.focus'), value: data.focus, color: "stroke-secondary", size: 220, key: 'focus' },
+    { label: t('moodWheel.anxiety'), value: data.anxiety, color: "stroke-accent", size: 160, key: 'anxiety' },
+    { label: t('moodWheel.depression'), value: data.depression, color: "stroke-wellness", size: 100, key: 'depression' },
   ];
 
   // Filter metrics based on enabled trackers
   const enabledMetrics = metrics.filter((metric) => {
-    const label = metric.label.toLowerCase();
-    if (label === 'mood') return true; // Always show mood in center
-    if (label === 'focus') return data.focus !== 50;
-    if (label === 'anxiety') return data.anxiety !== 50;
-    if (label === 'depression') return data.depression !== 50;
+    if (metric.key === 'mood') return true; // Always show mood in center
+    if (metric.key === 'focus') return data.focus !== 50;
+    if (metric.key === 'anxiety') return data.anxiety !== 50;
+    if (metric.key === 'depression') return data.depression !== 50;
     return true;
   });
 
@@ -155,7 +156,7 @@ const MoodWheel = () => {
 
   return (
     <Card className="p-8 border-border/50 flex flex-col items-center">
-      <h3 className="text-lg font-semibold text-foreground mb-6">Your Wellness Snapshot</h3>
+      <h3 className="text-lg font-semibold text-foreground mb-6">{t('moodWheel.wellnessSnapshot')}</h3>
       
       <div className="relative w-[300px] h-[300px] flex items-center justify-center">
         <svg className="absolute inset-0 w-full h-full -rotate-90">
