@@ -30,6 +30,12 @@
     "language": "اللغة",
     "languageDescription": "اختر لغتك المفضلة",
     "selectLanguage": "اختر اللغة",
+    "fontSize": "حجم الخط",
+    "fontSizeDescription": "ضبط حجم النص لتحسين القراءة",
+    "small": "صغير",
+    "medium": "متوسط",
+    "large": "كبير",
+    "extraLarge": "كبير جداً",
     "wellnessTrackers": "متتبعات الصحة",
     "wellnessTrackersDescription": "تمكين أو تعطيل متتبعات معينة بناءً على ما يناسبك",
     "moodTracker": "متتبع المزاج",
@@ -72,6 +78,7 @@
   "bottomNav": {
     "learn": "تعلم",
     "reflect": "تأمل",
+    "home": "الرئيسية",
     "checkIn": "تسجيل دخول"
   },
   "auth": {

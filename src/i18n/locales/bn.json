@@ -30,6 +30,12 @@
     "language": "ভাষা",
     "languageDescription": "আপনার পছন্দের ভাষা বেছে নিন",
     "selectLanguage": "ভাষা নির্বাচন করুন",
+    "fontSize": "ফন্ট সাইজ",
+    "fontSizeDescription": "ভাল পাঠযোগ্যতার জন্য টেক্সট সাইজ সামঞ্জস্য করুন",
+    "small": "ছোট",
+    "medium": "মাঝারি",
+    "large": "বড়",
+    "extraLarge": "অতি বড়",
     "wellnessTrackers": "সুস্থতা ট্র্যাকার",
     "wellnessTrackersDescription": "আপনার জন্য প্রাসঙ্গিক ট্র্যাকারগুলি সক্রিয় বা নিষ্ক্রিয় করুন",
     "moodTracker": "মেজাজ ট্র্যাকার",
@@ -72,6 +78,7 @@
   "bottomNav": {
     "learn": "শিখুন",
     "reflect": "প্রতিফলিত করুন",
+    "home": "হোম",
     "checkIn": "চেক-ইন"
   },
   "auth": {

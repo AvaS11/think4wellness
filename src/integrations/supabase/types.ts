@@ -71,6 +71,7 @@ export type Database = {
           created_at: string
           depression_tracker_enabled: boolean
           focus_tracker_enabled: boolean
+          font_size: string
           id: string
           language: string
           mood_tracker_enabled: boolean
@@ -83,6 +84,7 @@ export type Database = {
           created_at?: string
           depression_tracker_enabled?: boolean
           focus_tracker_enabled?: boolean
+          font_size?: string
           id?: string
           language?: string
           mood_tracker_enabled?: boolean
@@ -95,6 +97,7 @@ export type Database = {
           created_at?: string
           depression_tracker_enabled?: boolean
           focus_tracker_enabled?: boolean
+          font_size?: string
           id?: string
           language?: string
           mood_tracker_enabled?: boolean

@@ -10,9 +10,11 @@ import { ChevronLeft, Settings as SettingsIcon } from "lucide-react";
 import BottomNav from "@/components/BottomNav";
 import { supabase } from "@/integrations/supabase/client";
 import { useTranslation } from "react-i18next";
+import { useFontSize } from "@/hooks/useFontSize";
 
 interface UserPreferences {
   language: string;
+  font_size: string;
   mood_tracker_enabled: boolean;
   focus_tracker_enabled: boolean;
   anxiety_tracker_enabled: boolean;
@@ -39,6 +41,7 @@ const Settings = () => {
   const [userId, setUserId] = useState<string | null>(null);
   const [preferences, setPreferences] = useState<UserPreferences>({
     language: 'en',
+    font_size: 'medium',
     mood_tracker_enabled: true,
     focus_tracker_enabled: true,
     anxiety_tracker_enabled: true,
@@ -46,6 +49,8 @@ const Settings = () => {
     phone_dependence_tracker_enabled: true
   });
   const [loading, setLoading] = useState(true);
+
+  useFontSize(preferences.font_size);
 
   useEffect(() => {
     const loadPreferences = async () => {
@@ -70,6 +75,7 @@ const Settings = () => {
         if (data) {
           setPreferences({
             language: data.language,
+            font_size: data.font_size,
             mood_tracker_enabled: data.mood_tracker_enabled,
             focus_tracker_enabled: data.focus_tracker_enabled,
             anxiety_tracker_enabled: data.anxiety_tracker_enabled,
@@ -179,6 +185,29 @@ const Settings = () => {
                     {lang.name}
                   </SelectItem>
                 ))}
+              </SelectContent>
+            </Select>
+          </CardContent>
+        </Card>
+
+        <Card className="border-border/50">
+          <CardHeader>
+            <CardTitle>{t('settings.fontSize')}</CardTitle>
+            <CardDescription>{t('settings.fontSizeDescription')}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Select
+              value={preferences.font_size}
+              onValueChange={(value) => updatePreferences({ font_size: value })}
+            >
+              <SelectTrigger className="w-full">
+                <SelectValue />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="small">{t('settings.small')}</SelectItem>
+                <SelectItem value="medium">{t('settings.medium')}</SelectItem>
+                <SelectItem value="large">{t('settings.large')}</SelectItem>
+                <SelectItem value="extraLarge">{t('settings.extraLarge')}</SelectItem>
               </SelectContent>
             </Select>
           </CardContent>

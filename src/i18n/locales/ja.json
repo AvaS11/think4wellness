@@ -30,6 +30,12 @@
     "language": "言語",
     "languageDescription": "お好みの言語を選択してください",
     "selectLanguage": "言語を選択",
+    "fontSize": "フォントサイズ",
+    "fontSizeDescription": "読みやすさのためにテキストサイズを調整",
+    "small": "小",
+    "medium": "中",
+    "large": "大",
+    "extraLarge": "特大",
     "wellnessTrackers": "ウェルネストラッカー",
     "wellnessTrackersDescription": "関連する特定のトラッカーを有効または無効にする",
     "moodTracker": "気分トラッカー",
@@ -72,6 +78,7 @@
   "bottomNav": {
     "learn": "学ぶ",
     "reflect": "振り返る",
+    "home": "ホーム",
     "checkIn": "チェックイン"
   },
   "auth": {
