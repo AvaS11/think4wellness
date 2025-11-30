@@ -14,9 +14,9 @@ const Resources = () => {
       description: t('resources.category1Description'),
       color: "text-primary",
       articles: [
-        { text: t('resources.category1Article1'), url: "https://www.who.int/news-room/fact-sheets/detail/mental-disorders" },
-        { text: t('resources.category1Article2'), url: "https://www.mentalhealth.org.uk/explore-mental-health/a-z-topics" },
-        { text: t('resources.category1Article3'), url: "https://www.nimh.nih.gov/health/topics" }
+        { text: t('resources.category1Article1'), url: "https://www.who.int/news-room/fact-sheets/detail/anxiety-disorders" },
+        { text: t('resources.category1Article2'), url: "https://www.who.int/news-room/fact-sheets/detail/depression" },
+        { text: t('resources.category1Article3'), url: "https://www.who.int/news-room/questions-and-answers/item/stress" }
       ]
     },
     {
@@ -25,9 +25,9 @@ const Resources = () => {
       description: t('resources.category2Description'),
       color: "text-accent",
       articles: [
-        { text: t('resources.category2Article1'), url: "https://www.mind.org.uk/information-support/tips-for-everyday-living/wellbeing/" },
-        { text: t('resources.category2Article2'), url: "https://www.mentalhealth.org.uk/explore-mental-health/articles/how-look-after-your-mental-health-using-exercise" },
-        { text: t('resources.category2Article3'), url: "https://www.who.int/news-room/fact-sheets/detail/mental-health-strengthening-our-response" }
+        { text: t('resources.category2Article1'), url: "https://www.who.int/health-topics/self-care#tab=tab_1" },
+        { text: t('resources.category2Article2'), url: "https://www.cdc.gov/sleep/about/index.html" },
+        { text: t('resources.category2Article3'), url: "https://www.who.int/news-room/fact-sheets/detail/healthy-diet" }
       ]
     },
     {
@@ -36,9 +36,9 @@ const Resources = () => {
       description: t('resources.category3Description'),
       color: "text-secondary",
       articles: [
-        { text: t('resources.category3Article1'), url: "https://www.apa.org/topics/stress/manage" },
-        { text: t('resources.category3Article2'), url: "https://www.mind.org.uk/information-support/types-of-mental-health-problems/anxiety-and-panic-attacks/self-care/" },
-        { text: t('resources.category3Article3'), url: "https://www.nhs.uk/mental-health/self-help/guides-tools-and-activities/" }
+        { text: t('resources.category3Article1'), url: "https://health.clevelandclinic.org/grounding-techniques" },
+        { text: t('resources.category3Article2'), url: "https://www.ncbi.nlm.nih.gov/books/NBK513238/" },
+        { text: t('resources.category3Article3'), url: "https://cogbtherapy.com/cbt-blog/cognitive-defusion-techniques-and-exercises" }
       ]
     },
     {
@@ -47,9 +47,9 @@ const Resources = () => {
       description: t('resources.category4Description'),
       color: "text-primary",
       articles: [
-        { text: t('resources.category4Article1'), url: "https://www.mentalhealth.org.uk/explore-mental-health/articles/importance-community-and-mental-health" },
-        { text: t('resources.category4Article2'), url: "https://www.mind.org.uk/information-support/tips-for-everyday-living/loneliness/" },
-        { text: t('resources.category4Article3'), url: "https://www.who.int/campaigns/world-mental-health-day" }
+        { text: t('resources.category4Article1'), url: "https://www.who.int/about/communications/principles" },
+        { text: t('resources.category4Article2'), url: "https://www.mayoclinichealthsystem.org/hometown-health/speaking-of-health/setting-boundaries-for-well-being" },
+        { text: t('resources.category4Article3'), url: "https://www.mayoclinic.org/healthy-lifestyle/stress-management/in-depth/support-groups/art-20044655" }
       ]
     }
   ];
