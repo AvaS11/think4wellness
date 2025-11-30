@@ -30,6 +30,12 @@
     "language": "语言",
     "languageDescription": "选择你的首选语言",
     "selectLanguage": "选择语言",
+    "fontSize": "字体大小",
+    "fontSizeDescription": "调整文本大小以提高可读性",
+    "small": "小",
+    "medium": "中",
+    "large": "大",
+    "extraLarge": "特大",
     "wellnessTrackers": "健康追踪器",
     "wellnessTrackersDescription": "根据与你相关的内容启用或禁用特定追踪器",
     "moodTracker": "情绪追踪器",
@@ -72,6 +78,7 @@
   "bottomNav": {
     "learn": "学习",
     "reflect": "反思",
+    "home": "主页",
     "checkIn": "签到"
   },
   "auth": {

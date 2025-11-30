@@ -30,6 +30,12 @@
     "language": "Langue",
     "languageDescription": "Choisissez votre langue préférée",
     "selectLanguage": "Sélectionner la langue",
+    "fontSize": "Taille de Police",
+    "fontSizeDescription": "Ajuster la taille du texte pour une meilleure lisibilité",
+    "small": "Petit",
+    "medium": "Moyen",
+    "large": "Grand",
+    "extraLarge": "Très Grand",
     "wellnessTrackers": "Trackers de Bien-être",
     "wellnessTrackersDescription": "Activez ou désactivez des trackers spécifiques en fonction de ce qui vous concerne",
     "moodTracker": "Tracker d'Humeur",
@@ -72,6 +78,7 @@
   "bottomNav": {
     "learn": "Apprendre",
     "reflect": "Réfléchir",
+    "home": "Accueil",
     "checkIn": "S'enregistrer"
   },
   "auth": {

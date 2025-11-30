@@ -38,6 +38,9 @@ All colors MUST be HSL.
 
     --radius: 1rem;
     
+    /* Font size accessibility */
+    --base-font-size: 16px;
+    
     /* Wellness-specific tokens */
     --calm: 152 60% 80%;
     --calm-foreground: 297 20% 10%;
@@ -119,5 +122,6 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-size: var(--base-font-size);
   }
 }

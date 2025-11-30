@@ -30,6 +30,12 @@
     "language": "Idioma",
     "languageDescription": "Escolha seu idioma preferido",
     "selectLanguage": "Selecionar idioma",
+    "fontSize": "Tamanho da Fonte",
+    "fontSizeDescription": "Ajustar o tamanho do texto para melhor legibilidade",
+    "small": "Pequeno",
+    "medium": "Médio",
+    "large": "Grande",
+    "extraLarge": "Extra Grande",
     "wellnessTrackers": "Rastreadores de Bem-estar",
     "wellnessTrackersDescription": "Ative ou desative rastreadores específicos com base no que é relevante para você",
     "moodTracker": "Rastreador de Humor",
@@ -72,6 +78,7 @@
   "bottomNav": {
     "learn": "Aprender",
     "reflect": "Refletir",
+    "home": "Início",
     "checkIn": "Registrar"
   },
   "auth": {
