@@ -68,6 +68,7 @@ export type Database = {
       user_preferences: {
         Row: {
           anxiety_tracker_enabled: boolean
+          contrast_mode: string
           created_at: string
           depression_tracker_enabled: boolean
           focus_tracker_enabled: boolean
@@ -81,6 +82,7 @@ export type Database = {
         }
         Insert: {
           anxiety_tracker_enabled?: boolean
+          contrast_mode?: string
           created_at?: string
           depression_tracker_enabled?: boolean
           focus_tracker_enabled?: boolean
@@ -94,6 +96,7 @@ export type Database = {
         }
         Update: {
           anxiety_tracker_enabled?: boolean
+          contrast_mode?: string
           created_at?: string
           depression_tracker_enabled?: boolean
           focus_tracker_enabled?: boolean
