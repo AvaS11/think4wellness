@@ -129,12 +129,32 @@ const Settings = () => {
     setProfile(newProfile);
 
     try {
-      const { error } = await supabase
+      // Check if profile exists
+      const { data: existing } = await supabase
         .from('profiles')
-        .update({ display_name: newProfile.display_name })
-        .eq('user_id', userId);
+        .select('id')
+        .eq('user_id', userId)
+        .maybeSingle();
 
-      if (error) throw error;
+      if (existing) {
+        // Update existing profile
+        const { error } = await supabase
+          .from('profiles')
+          .update({ display_name: newProfile.display_name })
+          .eq('user_id', userId);
+
+        if (error) throw error;
+      } else {
+        // Insert new profile
+        const { error } = await supabase
+          .from('profiles')
+          .insert({
+            user_id: userId,
+            display_name: newProfile.display_name
+          });
+
+        if (error) throw error;
+      }
 
       toast.success(t('settings.settingsSaved'));
     } catch (error: any) {
