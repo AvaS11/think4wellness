@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
@@ -11,6 +12,7 @@ import { supabase } from "@/integrations/supabase/client";
 
 const Journal = () => {
   const { t } = useTranslation();
+  const location = useLocation();
   const [title, setTitle] = useState("");
   const [entry, setEntry] = useState("");
   const [userName, setUserName] = useState("User");
@@ -19,12 +21,31 @@ const Journal = () => {
     const checkUser = async () => {
       const { data: { user } } = await supabase.auth.getUser();
       if (user) {
-        const email = user.email?.split('@')[0] || "User";
-        setUserName(email.charAt(0).toUpperCase() + email.slice(1));
+        // Try to get display name from profiles table
+        try {
+          const { data: profileData } = await supabase
+            .from('profiles')
+            .select('display_name')
+            .eq('user_id', user.id)
+            .maybeSingle();
+
+          if (profileData?.display_name) {
+            setUserName(profileData.display_name);
+          } else {
+            // Fallback to email username
+            const email = user.email?.split('@')[0] || "User";
+            setUserName(email.charAt(0).toUpperCase() + email.slice(1));
+          }
+        } catch (error) {
+          console.error('Error fetching profile:', error);
+          // Fallback to email username
+          const email = user.email?.split('@')[0] || "User";
+          setUserName(email.charAt(0).toUpperCase() + email.slice(1));
+        }
       }
     };
     checkUser();
-  }, []);
+  }, [location.pathname]);
 
   const handleSave = () => {
     if (!entry.trim()) {
