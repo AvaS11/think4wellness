@@ -1,10 +1,10 @@
 # Exploratory Data Analysis
-We developed multiple visualizations throughout our analysis of Kaggle's Digital Lifestyle Benchmark Dataset.
+Daniel Tran and Ava Scheerer developed multiple visualizations throughout their analysis of Kaggle's Digital Lifestyle Benchmark Dataset.
 
 Explore our EDA code here: https://github.com/danielxtran/BDAA_2025_EDA.
 
 # BDAA 2nd Annual Research Gala
-Daniel Tran and I presented this project at the Big Data & Analytics Association's 2nd Annual Research Gala in December 2025. We were awarded **1st in the Data Science & Analytics track**, as well as the **Students Choice Award**.
+The team presented this project at the Big Data & Analytics Association's 2nd Annual Research Gala in December 2025. The project was awarded **1st in the Data Science & Analytics track**, as well as the **Students Choice Award**.
 
 Learn more about the event and our project here: https://medium.com/@ohiostatebdaa/innovation-in-action-highlights-from-the-2nd-annual-bdaa-research-gala-248f22e76058.
 
