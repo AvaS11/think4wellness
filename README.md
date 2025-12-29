@@ -1,12 +1,15 @@
-# Welcome to your Lovable project
+# Exploratory Data Analysis
+We developed multiple visualizations throughout our analysis of Kaggle's Digital Lifestyle Benchmark Dataset.
 
-## Project info
+Explore our EDA code here: https://github.com/danielxtran/BDAA_2025_EDA.
 
+# BDAA 2nd Annual Research Gala
+Daniel Tran and I presented this project at the Big Data & Analytics Association's 2nd Annual Research Gala in December 2025. We were awarded 1st in the Data Science & Analytics track, as well as the Students Choice Award.
+
+Learn more about the event here: https://medium.com/@ohiostatebdaa/innovation-in-action-highlights-from-the-2nd-annual-bdaa-research-gala-248f22e76058.
+
+# Lovable Development Info
 **URL**: https://lovable.dev/projects/0e6debd5-2495-4f8e-8c69-16567c8e2d09
-
-## How can I edit this code?
-
-There are several ways of editing your application.
 
 **Use Lovable**
 
